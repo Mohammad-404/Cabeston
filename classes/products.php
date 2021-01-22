@@ -1,9 +1,5 @@
 <?php
-	include('DBConnection.php');
 
-	/**
-	 * 
-	 */
 	class products extends dbconnection
 	{
 		public $id;
@@ -21,11 +17,11 @@
 			return 		  $this->performRows($result);
 		}
 		
-		public function ReadBag($k){
-			$query 		= "SELECT * FROM products WHERE pro_id = '$k'";
-			$result 	= $this->performQuery($query);
-			return 		  $this->fetchAll($result);
-		}
+		// public function ReadBag($k){
+		// 	$query 		= "SELECT * FROM products WHERE pro_id = '$k'";
+		// 	$result 	= $this->performQuery($query);
+		// 	return 		  $this->fetchAll($result);
+		// }
 
 				
 	}

@@ -2,7 +2,11 @@
 	session_start();
 	include('classes/DBConnection.php');
 	include('classes/homepage.php');
-	$homepage = new homepage();
+	include('classes/products.php');
+	include('classes/product-details.php');
+	$homepage 			= new homepage();
+	$product 			= new products();
+	$product_details 	= new Product_Details();
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -44,13 +48,25 @@
 	<link rel="stylesheet" type="text/css" href="css/revolutionslider_settings.css" media="screen" />
 
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<style type="text/css">
+		.change_img_pro{
+			width: 100% !important;
+			height: 220px !important;
+		}
+		.img_prod{
+			width: 100% !important;
+			height: 400px !important;
+		}
+		.img_details{
+			width: 100% !important;
+			height: 490px !important;	
+		}
+
+	</style>
 </head>
 
 <body class="style-14">
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
 
 <!-- Start Loading -->
 <section class="loading-overlay">

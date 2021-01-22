@@ -18,6 +18,15 @@
 			return 		  $this->fetchAll($result);
 		}
 
+
+		//view Products
+		public function ReadProducts(){
+			$query    	= "SELECT * FROM products";
+			$result 	= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
+
+
 		//view all product but need number pages
 		public function NumberRowInAllCetegory(){
 			$query  = "SELECT * FROM cetegory";
