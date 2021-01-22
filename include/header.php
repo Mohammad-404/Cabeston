@@ -1,12 +1,12 @@
 <?php
-	session_start();
-	include('classes/DBConnection.php');
-	include('classes/homepage.php');
-	include('classes/products.php');
-	include('classes/product-details.php');
-	$homepage 			= new homepage();
-	$product 			= new products();
-	$product_details 	= new Product_Details();
+	// session_start();
+	// include('classes/DBConnection.php');
+	// include('classes/homepage.php');
+	// include('classes/products.php');
+	// include('classes/product-details.php');
+	// $homepage 			= new homepage();
+	// $product 			= new products();
+	// $product_details 	= new Product_Details();
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -49,6 +49,16 @@
 
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
+
+
+	<!--flex slider stylesheet-->
+	<link rel="stylesheet" href="css/flexslider.css" />
+	<!--lightbox stylesheet-->
+	<link rel="stylesheet" href="css/image-light-box.css" />
+
+
+
+
 	<style type="text/css">
 		.change_img_pro{
 			width: 100% !important;
@@ -62,7 +72,17 @@
 			width: 100% !important;
 			height: 490px !important;	
 		}
+		.spacediv{
+			margin-top: 50px;
+		}
+		.img_slidersss{
+			width: 100% !important;
+			height: 400px !important;
+		}
 
+		.color_price{
+			color:green !important;
+		}
 	</style>
 </head>
 

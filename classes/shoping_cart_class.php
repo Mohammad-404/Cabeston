@@ -1,9 +1,4 @@
 <?php
-	include("DBConnection.php");
-
-	/**
-	 * 
-	 */
 	class Shoping_Cart extends dbconnection
 	{
 		public $cust_id;
@@ -34,7 +29,7 @@
 			return 		  $this->fetchAll($result);
 		}
 
-		public function ReadBag($k){
+		public function ReadCart($k){
 			$query 		= "SELECT * FROM products WHERE pro_id = '$k'";
 			$result 	= $this->performQuery($query);
 			return 		  $this->fetchAll($result);

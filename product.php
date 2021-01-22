@@ -1,4 +1,7 @@
 <?php
+	include('classes/DBConnection.php');
+	include('classes/products.php');
+	$product 			= new products();
 	include('include/header.php');
 ?>
 

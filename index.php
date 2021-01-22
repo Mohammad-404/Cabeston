@@ -1,4 +1,7 @@
 <?php
+	include('classes/DBConnection.php');
+	include('classes/homepage.php');
+	$homepage 			= new homepage();
 	include('include/header.php');
 ?>
 
