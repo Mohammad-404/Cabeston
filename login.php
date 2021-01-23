@@ -2,6 +2,12 @@
 	include('classes/DBConnection.php');
 	include('classes/login_class.php');	
 	session_start();
+	if (isset($_SESSION['user_id']) || isset($_SESSION['cust_email']) || isset($_SESSION['user_name'])) 
+	{
+		header("location: index.php");	
+	}
+
+
 	$l = new LoginUser();
 
 	if (isset($_POST['sub'])) {
@@ -12,7 +18,7 @@
 			$_SESSION['user_id']  		= $Result[0]['cust_id'];
 			$_SESSION['cust_email']		= $Result[0]['cust_email'];
 			$_SESSION['user_name'] 		= $Result[0]['cust_name'];
-			header("location: cart.php");
+			header("location: index.php");
 		}else{
 			$FaildLogin = "USER NOT FOUND !";
 		}

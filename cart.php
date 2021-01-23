@@ -5,6 +5,8 @@
 
 	$Shoping_Cart = new Shoping_Cart();
 
+	if (isset($_SESSION['cart'])) {
+
 	if (isset($_POST['subm'])) {
 		if (isset($_SESSION['user_name']) && isset($_SESSION['user_id'])) {
 			$Shoping_Cart->cust_id 		= $_SESSION['user_id']; //login user id using session
@@ -25,6 +27,7 @@
 			header("location: login.php");
 		}
 	}
+}
 	include("include/header.php");
 ?>
 <!-- start main content -->
@@ -63,7 +66,7 @@
 								<tbody>
 									<?php
 										$Subtotal = 0;
-										if ($_SESSION['cart']) {
+										if (isset($_SESSION['cart'])) {
 											foreach ($_SESSION['cart'] as $key => $value) {
 												$ReadInfo = $Shoping_Cart->ReadCart($key);
 												foreach ($ReadInfo as $Row){

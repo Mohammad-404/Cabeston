@@ -1,12 +1,8 @@
 <?php
-	// session_start();
-	// include('classes/DBConnection.php');
-	// include('classes/homepage.php');
-	// include('classes/products.php');
-	// include('classes/product-details.php');
-	// $homepage 			= new homepage();
-	// $product 			= new products();
-	// $product_details 	= new Product_Details();
+if( !headers_sent() && '' == session_id() ) {
+	session_start();
+}
+
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -91,6 +87,12 @@
 			border-radius: 100px 50px 100px 50px !important;
 			font-size: 15px !important; 
 		}
+
+		.edittext{
+			color: white !important;
+			font-weight: bold !important;
+		}
+
 	</style>
 </head>
 
@@ -161,14 +163,31 @@
 			<!-- Shopping kart ends -->
 
 			<!-- Langauge starts -->
-			<div class="tb-language dropdown pull-right">
-				<a href="#" data-target="#" data-toggle="dropdown"><i class="fa fa-globe"></i> English <i class="fa fa-angle-down color"></i></a>
-				<!-- Dropdown menu with languages -->
-				<ul class="dropdown-menu dropdown-mini" role="menu">
-					<li><a href="#">Germany</a></li>
-					<li><a href="#">France</a></li>
-					<li><a href="#">Brazil</a></li>
-				</ul>
+			<div class="tb-language dropdown pull-right btn btn-primary">
+					<?php
+						if (isset($_SESSION['user_name'])) {
+							echo"
+								<a href='#' data-target='#' data-toggle='dropdown' class='edittext'>
+								<i class='fa fa-globe edittext'></i> 
+								".$_SESSION['user_name']."
+								<i class='fa fa-angle-down color edittext'></i>
+								</a>
+
+
+								<ul class='dropdown-menu dropdown-mini' role='menu'>
+									<li><a href='profile.php'>Profile</a></li>
+									<li><a href='logout.php'>Logout</a></li>
+								</ul>
+							";
+						}else{
+							echo"
+								<a href='login.php' class='edittext'>
+									<i class='fa fa-globe edittext'></i> 
+									Login
+								</a>
+							";
+						}
+					?> 
 			</div>
 			<!-- Language ends -->
 
