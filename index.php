@@ -225,6 +225,7 @@
 									<div id="product-carousel" class="product-listing">
 							
 										<?php
+										if ($homepage->ReadProducts()) {
 											$ResultProduct = $homepage->ReadProducts();
 											foreach ($ResultProduct as $RowProduct) {
 										?>			
@@ -259,6 +260,7 @@
 										</div>
 										<?php
 											}
+										}
 										?>
 									</div>
 								</div>
