@@ -83,6 +83,14 @@
 		.color_price{
 			color:green !important;
 		}
+
+		.butto{
+			background-color:black !important;
+			font-weight: bold !important;
+			font-family: arial !important;
+			border-radius: 100px 50px 100px 50px !important;
+			font-size: 15px !important; 
+		}
 	</style>
 </head>
 

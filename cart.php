@@ -2,9 +2,30 @@
 	session_start();
 	include("classes/DBConnection.php");
 	include("classes/shoping_cart_class.php");
-	include("include/header.php");
 
 	$Shoping_Cart = new Shoping_Cart();
+
+	if (isset($_POST['subm'])) {
+		if (isset($_SESSION['user_name']) && isset($_SESSION['user_id'])) {
+			$Shoping_Cart->cust_id 		= $_SESSION['user_id']; //login user id using session
+			$Shoping_Cart->date 		= date('Y-m-d H:i:s');
+			$Shoping_Cart->last_id 		= $Shoping_Cart->InsertDateOrder();
+
+			foreach ($_SESSION['cart'] as $key => $value) {
+				$variable = $Shoping_Cart->ReadDateProducts($key);
+				foreach ($variable as $row);		
+				$Shoping_Cart->total  		= $row['pro_price']*$value;
+				$Shoping_Cart->pro_id 		= $key;
+				$Shoping_Cart->quantity 	= $value;
+				$Shoping_Cart->InsertDateOrderDetails();
+			}
+			unset($_SESSION['cart']);
+			header("location: Thank.php");
+		}else{
+			header("location: login.php");
+		}
+	}
+	include("include/header.php");
 ?>
 <!-- start main content -->
 <main class="main-container">
@@ -146,10 +167,11 @@
 									<!-- End table -->
 
 									<div class="mt-30"></div>
-
-									<div class="text-right"><a href="#" class="btn btn-custom-6 btn-lger min-width-sm">Checkout</a>
+								<form action="" method="post">
+									<div class="text-right">
+										<input type="submit" name="subm" value="Checkout" class="btn btn-custom-6 btn-lger min-width-sm butto">
 									</div>
-
+								</form>
 								</div>
 								<!-- /.col-md-4 -->
 							</div>

@@ -1,8 +1,4 @@
 <?php
-	include('DBConnection.php');
-	/**
-	 * 
-	 */
 	class LoginUser extends dbconnection
 	{
 		public $email;
