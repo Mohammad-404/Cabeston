@@ -132,11 +132,16 @@
 					<div class="shopping-item">
 						<!-- Image -->
 						
-						<?=
-						"<a>
-							<img class='img-responsive' src='UploadImages/{$row['cat_image']}' alt='Not Found' />
-						</a>
-						"
+						<?php
+						if (!empty($row['cat_image'])) {
+							echo"<a>
+								<img class='img-responsive' src='UploadImages/{$row['cat_image']}' alt='Not Found' />
+								</a>";
+						}else{
+							echo"<a>
+								<img class='img-responsive' src='img/photos/media-doc.png' alt='Not Found' />
+								</a>";
+						}
 						?>
 						<!-- Shopping item name / Heading -->
 						<?=
@@ -232,13 +237,21 @@
 										<div class="product  item first ">
 											<article>		
 												<figure>
-													<a href="#">
-														<?=
-														"
-														<img 
-														src='UploadImages/{$RowProduct['pro_image']}' class='img-responsive change_img_pro' alt='Not Found'>
-														";
+													<a>
+														<?php
+														if (!empty($RowProduct['pro_image'])) {
+														echo"
+															<img 
+															src='UploadImages/{$RowProduct['pro_image']}' class='img-responsive change_img_pro' alt='Not Found'>
+															";					
+														}else{
+															echo"
+															<img 
+															src='img/photos/media-doc.png' class='img-responsive change_img_pro' alt='Not Found'>
+															";						
+														}
 														?>
+													
 													</a>
 													<figcaption><span class="amount">
 														<?="{$RowProduct['pro_name']}";?>

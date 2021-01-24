@@ -2,6 +2,7 @@
 	session_start();
 	include('classes/DBConnection.php');
 	include('classes/product-details.php');
+	
 	$product_details 	= new Product_Details();
 	$id_pro = $_GET['id'];
 	

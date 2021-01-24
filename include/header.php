@@ -2,7 +2,7 @@
 if( !headers_sent() && '' == session_id() ) {
 	session_start();
 }
-
+	include("include/db.php");
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -92,7 +92,6 @@ if( !headers_sent() && '' == session_id() ) {
 			color: white !important;
 			font-weight: bold !important;
 		}
-
 	</style>
 </head>
 
@@ -143,33 +142,36 @@ if( !headers_sent() && '' == session_id() ) {
 					<!-- Heading -->
 					<h4><i class="fa fa-shopping-cart color"></i> Your Items</h4>
 					<ul class="list-unstyled">
-						<!-- Item 1 -->
-						<li>
-							<!-- Item image -->
-							<div class="cart-img">
-								<a href="#"><img src="img/ecommerce/view-cart/1.png" alt="" class="img-responsive" /></a>
-							</div>
-							<!-- Item heading and price -->
-							<div class="cart-title">
-								<h5><a href="#">Premium Quality Shirt</a></h5>
-								<!-- Item price -->
-								<span class="label label-color label-sm">$1,90</span>
-							</div>
-							<div class="clearfix"></div>
-						</li>
-						<!-- Item 2 -->
-						<li>
-							<div class="cart-img">
-								<a href="#"><img src="img/ecommerce/view-cart/2.png" alt="" class="img-responsive" /></a>
-							</div>
-							<div class="cart-title">
-								<h5><a href="#">Premium Quality Shirt</a></h5>
-								<span class="label label-color label-sm">$1,20</span>
-							</div>
-							<div class="clearfix"></div>
-						</li>
+						
+						<?php
+							if (isset($_SESSION['cart'])) {
+								foreach ($_SESSION['cart'] as $k => $v) {
+									$query 			= "SELECT * FROM products WHERE pro_id = '$k'";
+									$result 		= mysqli_query($conn,$query);
+									$valueIcons		= mysqli_fetch_assoc($result);
+									echo"
+										<li>
+											<div class='cart-img'>
+												<a>
+												  <img src='UploadImages/{$valueIcons['pro_image']}' alt='Not Found' class='img-responsive' />
+												</a>
+											</div>
+											<!-- Item heading and price -->
+											<div class='cart-title'>
+												<h5><a>{$valueIcons['pro_name']}</a></h5>
+												<!-- Item price -->
+												<span class='label label-color label-sm'>
+												JD {$valueIcons['pro_price']}</span>
+											</div>
+											<div class='clearfix'></div>
+										</li>
+									";											
+								}
+							}		
+						?>
 					</ul>
-					<a href="#" class="btn btn-white btn-sm">View Cart</a> &nbsp; <a href="#" class="btn btn-color btn-sm">Checkout</a>
+					<a href="cart.php" class="btn btn-white btn-sm">View Cart</a> 
+					&nbsp; <!-- <a href="#" class="btn btn-color btn-sm">Checkout</a> -->
 				</div>
 			</div>
 			<!-- Shopping kart ends -->
