@@ -125,7 +125,19 @@ if( !headers_sent() && '' == session_id() ) {
 			<!-- Shopping kart starts -->
 			<div class="tb-shopping-cart pull-right">
 				<!-- Link with badge -->
-				<a href="#" class="btn btn-white btn-xs b-dropdown"><i class="fa fa-shopping-cart"></i> <i class="fa fa-angle-down color"></i> <span class="badge badge-color">2</span></a>
+				<a href="#" class="btn btn-white btn-xs b-dropdown"><i class="fa fa-shopping-cart"></i> <i class="fa fa-angle-down color"></i> 
+				<span class="badge badge-color">
+				<?php
+				//print_r($_SESSION['cart']);
+					$num = 0;
+					if (isset($_SESSION['cart'])) {
+						foreach ($_SESSION['cart'] as $value) {
+							$num++;
+						}
+					}
+					echo $num;
+				?>
+				</span></a>
 				<!-- Dropdown content with item details -->
 				<div class="b-dropdown-block">
 					<!-- Heading -->

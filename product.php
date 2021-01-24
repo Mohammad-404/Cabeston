@@ -47,9 +47,21 @@
 
 					<div class="col-xs-12 col-sm-6 col-md-4 product-item filter-best">
 						<div class="product-img">
-							<?="
-							<img src='UploadImages/{$row['pro_image']}' class='img_prod' alt='product'>
-							"?>
+							<?php
+							if (!empty($row['pro_image'])) {
+								echo
+								"
+								<img src='UploadImages/{$row['pro_image']}' class='img_prod' alt='product'>
+								";	
+							}else{
+							echo
+							"
+							<img src='img/photos/media-doc.png' class='img_prod' alt='sadads'>
+							";
+
+							}
+							
+							?>
 							<div class="product-hover">
 								<div class="product-cart">
 									<?="

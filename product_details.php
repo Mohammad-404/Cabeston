@@ -61,7 +61,7 @@
 									$product_details->id = $_GET['id'];
 									$Results			 = $product_details->ViewAllProducts();
 									foreach ($Results as $value) {
-									if ($value['pro_image'] != "") {
+									if (!empty($value['pro_image'])) {
 									echo"
 									<li data-thumb='UploadImages/{$value['pro_image']}'>
 										<a href='UploadImages/{$value['pro_image']}' data-imagelightbox='gallery' class='hoodie_7_front ss'>
@@ -69,6 +69,15 @@
 										</a>
 									</li>
 									";
+									}else{
+									echo"
+									<li data-thumb='img/photos/media-doc.png'>
+										<a href='img/photos/media-doc.png' data-imagelightbox='gallery' class='hoodie_7_front ss'>
+										<img src='img/photos/media-doc.png' class='attachment-shop_single img_slidersss' alt='image'>
+										</a>
+									</li>
+									";
+
 									}
 									if ($value['pro_image1'] != "") {
 									echo"

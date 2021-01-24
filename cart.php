@@ -76,8 +76,9 @@
 													<a>
 														<img class='img-responsive ImgCart' 
 														src='UploadImages/{$Row['pro_image']}' 
-															alt='White linen sheer dress'>
+															alt='Not Found'>
 													</a>
+												</td>
 
 												<td>
 													<h2 class='product-name'>
