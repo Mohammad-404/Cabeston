@@ -195,6 +195,20 @@ if( !headers_sent() && '' == session_id() ) {
 									<li><a href='logout.php'>Logout</a></li>
 								</ul>
 							";
+						}elseif(isset($_SESSION['vendor_name'])){
+							echo"
+								<a href='#' data-target='#' data-toggle='dropdown' class='edittext'>
+								<i class='fa fa-globe edittext'></i> 
+								".$_SESSION['vendor_name']."
+								<i class='fa fa-angle-down color edittext'></i>
+								</a>
+
+
+								<ul class='dropdown-menu dropdown-mini' role='menu'>
+									<li><a href='vendor/index.php'>Profile</a></li>
+									<li><a href='logout.php'>Logout</a></li>
+								</ul>
+							";
 						}else{
 							echo"
 								<a href='login.php' class='edittext'>

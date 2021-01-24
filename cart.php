@@ -2,6 +2,9 @@
 	session_start();
 	include("classes/DBConnection.php");
 	include("classes/shoping_cart_class.php");
+	if (isset($_SESSION['vendor_name'])) {
+		header("location: index.php");
+	}
 
 	$Shoping_Cart = new Shoping_Cart();
 

@@ -15,13 +15,19 @@
 	foreach ($Compare as $Qty);
 
 	if (isset($_POST['sub'])) {
+
+	if (!isset($_SESSION['vendor_name'])) {
 		if ($_POST['quan'] <= $Qty['qty']) {
 		$_SESSION['cart'][$id_pro] = $_POST['quan']; 
 		header("location:cart.php");
 		}else{
 			$error = "The operation Failed, please reduce the quantity";
-		}
+		}		
+	}else{
+		header("location: index.php");
 	}
+	
+}
 
 
 

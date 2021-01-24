@@ -1,5 +1,5 @@
 <?php
-class signup extends dbconnection{
+class vendorsign extends dbconnection{
 	
 	public $email;
 	public $password;
@@ -8,11 +8,11 @@ class signup extends dbconnection{
 	public $name;
 	public $business;
 
-	public function CreateUser(){
+	public function CreateVendor(){
 		$query  = 
-		"INSERT INTO customer(cust_name,cust_email,cust_password,cust_mobile,cust_address,business)
-		Values('$this->name','$this->email','$this->password','$this->phone','$this->address',
-		'$this->business')";
+		"INSERT INTO vendor(name,password,email,address,phone,business)
+		Values('$this->name','$this->password','$this->email','$this->address','$this->phone'
+		,'$this->business')";
 		
 		if ($this->performQuery($query)) {
 			header("location: login.php");
@@ -24,4 +24,5 @@ class signup extends dbconnection{
 
 
 }
+
 ?>

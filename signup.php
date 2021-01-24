@@ -1,21 +1,44 @@
 <?php
 	include("classes/DBConnection.php");
 	include("classes/createaccount.php");
-	$signup = new signup();
+	include("classes/Vendoraccount.php");
+	
+	$signup 		= new signup();
+	$vendorsign 	= new vendorsign();
 
+	
 	if (isset($_POST['sub'])) {
+		if ($_POST['bus'] == "Customer") {
 			$signup->email 		= $_POST['email'];
 			$signup->password 	= $_POST['password'];
 			$repassword 		= $_POST['re_password'];
 			$signup->address 	= $_POST['address'];
 			$signup->phone 		= $_POST['phone'];
 			$signup->name	 	= $_POST['username'];
+			$signup->business 	= $_POST['bus'];
+
 			if ($_POST['password'] == $_POST['re_password']) {
 					$Error = $signup->CreateUser();
 			}else{
 					$Error = "The Password is Different";	
 			}
-	}
+		}
+
+		if($_POST['bus'] == "Vendor"){
+			$vendorsign->email 		= $_POST['email'];
+			$vendorsign->password 	= $_POST['password'];
+			$repassword 			= $_POST['re_password'];
+			$vendorsign->address 	= $_POST['address'];
+			$vendorsign->phone 		= $_POST['phone'];
+			$vendorsign->name	 	= $_POST['username'];
+			$vendorsign->business 	= $_POST['bus'];
+			if ($_POST['password'] == $_POST['re_password']) {
+					$Error = $vendorsign->CreateVendor();
+			}else{
+					$Error = "The Password is Different";	
+			}	
+		}
+}
 
 
 	include('include/header.php');
@@ -106,34 +129,15 @@
 							<label class="control-label">Retype Password</label>
 							<input type="password" name="re_password" class="form-control" />
 						</div>
-<!-- 
-						<label class="control-label">Birthday</label>
-						<div class="row mb10"> -->
-<!-- 							<div class="col-sm-5">
-								<select class="form-control chosen-select" data-placeholder="Month">
-									<option value="Select">Select Month</option>
-									<option value="January">January</option>
-									<option value="February">February</option>
-									<option value="March">March</option>
-									<option value="April">April</option>
-									<option value="May">May</option>
-									<option value="June">June</option>
-									<option value="July">July</option>
-									<option value="August">August</option>
-									<option value="September">September</option>
-									<option value="October">October</option>
-									<option value="November">November</option>
-									<option value="December">December</option>
+						<br>
+						<label class="control-label">Select Your Business</label>
+							<div class="mb10">
+								<select name="bus" class="form-control chosen-select" data-placeholder="">
+									<option value="Vendor">Vendor</option>
+									<option value="Customer">Customer</option>
 								</select>
-							</div> -->
-<!-- 							<div class="col-sm-3">
-								<input type="text" class="form-control" placeholder="Day" />
-							</div>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" placeholder="Year" />
-							</div>
-						</div>
- -->
+							</div><br>
+
 						<div class="mb10">
 							<label class="control-label">Email Address</label>
 							<input type="text" name="email" class="form-control" />
