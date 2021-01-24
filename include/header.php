@@ -114,10 +114,12 @@ if( !headers_sent() && '' == session_id() ) {
 			<!-- Contact starts -->
 			<div class="tb-contact pull-left">
 				<!-- Email -->
-				<i class="fa fa-envelope color"></i> &nbsp; <a href="mailto:contact@domain.com">contact@domain.com</a>
+				<i class="fa fa-envelope color"></i> &nbsp; <a href="mailto:m.almasri97.me@gmail.com">
+					m.almasri97.me@gmail.com
+				</a>
 				&nbsp;&nbsp;
 				<!-- Phone -->
-				<i class="fa fa-phone color"></i> &nbsp; +1 (342)-(323)-4923
+				<i class="fa fa-phone color"></i> &nbsp; +962 (795)-(439)-152
 			</div>
 			<!-- Contact ends -->
 
@@ -275,17 +277,17 @@ if( !headers_sent() && '' == session_id() ) {
 				<div class="navy">
 					<ul>
 						<!-- Main menu -->
-						<li><a href="#">Home</a>
+						<li><a href="index.php">Home</a>
 							<!-- Submenu -->
-							<ul>
+<!-- 							<ul>
 
 								<li><a href="index.html">Home 1</a></li>
 								<li><a href="index-2.html"><span>Home 2</span></a></li>
 								<li><a href="index-3.html"><span>Home 3</span></a></li>
 
-							</ul>
+							</ul> -->
 						</li>
-
+<!-- 
 						<li><a href="#">Features</a>
 							<ul>
 								<li><a href="#">Footer</a>
@@ -305,7 +307,8 @@ if( !headers_sent() && '' == session_id() ) {
 
 							</ul>
 						</li>
-
+ -->
+<!-- 
 						<li><a href="#">Category</a>
 							<ul>
 								<li><a href="#">Laptop</a>
@@ -336,20 +339,20 @@ if( !headers_sent() && '' == session_id() ) {
 
 									</ul>
 								</li>
-								<!-- Multi level menu -->
+								
 								<li><a href="#">Multi Level Menu</a>
 									<ul>
-										<!-- Sub menu -->
+									
 										<li><a href="#">Menu #1</a></li>
 										<li><a href="#">Menu #1</a></li>
 										<li><a href="#">Menu #1</a>
 											<ul>
-												<!-- Sub menu -->
+												
 												<li><a href="#">Menu #2</a></li>
 												<li><a href="#">Menu #2</a></li>
 												<li><a href="#">Menu #2</a>
 													<ul>
-														<!-- Sub menu -->
+														
 														<li><a href="#">Menu #3</a></li>
 														<li><a href="#">Menu #3</a></li>
 														<li><a href="#">Menu #3</a></li>
@@ -361,7 +364,8 @@ if( !headers_sent() && '' == session_id() ) {
 								</li>
 							</ul>
 						</li>
-
+ -->
+<!-- 
 						<li><a href="#">Blog</a>
 							<ul>
 								<li><a href="blog.html"><span>Blog Default</span></a></li>
@@ -384,9 +388,9 @@ if( !headers_sent() && '' == session_id() ) {
 								<li><a href="404.html"><span>404 Page</span></a></li>
 							</ul>
 						</li>
-
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
+ -->
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="contact.php">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
