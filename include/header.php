@@ -92,6 +92,11 @@ if( !headers_sent() && '' == session_id() ) {
 			color: white !important;
 			font-weight: bold !important;
 		}
+
+		.ImgCart{
+			height: 200px !important;
+
+		}
 	</style>
 </head>
 
