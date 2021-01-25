@@ -1,5 +1,8 @@
 <?php
-    session_start();
+    
+    if ( !headers_sent() && "" == session_id()) {
+        session_start();
+    }
     if (!isset($_SESSION['vendor_name'])) {
         header("location: ../index.php");
     }
@@ -72,6 +75,16 @@
             height: 40px !important;
         }
 
+        .t{
+            color:white !important;
+            font-weight: bold !important;
+        }
+
+        .imgupdate{
+            width: 50px !important;
+            height: 50px !important;
+        }
+
     </style>
 </head>
 
@@ -90,7 +103,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Products</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="addproduct.php">Create Post</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">View Products</a></li>
+                            <li><i class="fa fa-table"></i><a href="viewProduct.php">View Products</a></li>
                         </ul>
                     </li>
                     <li class="menu-title">Orders Vendor</li><!-- /.menu-title -->
