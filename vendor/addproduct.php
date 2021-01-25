@@ -1,16 +1,50 @@
 <?php
+    include("include/header.php");
     
+    include("classes/createproduct_class.php");
+    $insertprod = new insertprod();
+
+    if (isset($_POST['sub'])) {
+        $insertprod->pro_name            = $_POST["proname"];
+        $insertprod->pro_desc            = $_POST["prodesc"];
+        $insertprod->pro_price           = $_POST["price"];
+        $insertprod->qty                 = $_POST["quan"];
+        $insertprod->vendor_id           = $_SESSION['vendor_id'];
+        $insertprod->vendor_name         = $_SESSION['vendor_name'];
+        $insertprod->vendor_email        = $_SESSION['vendor_email'];
+        $insertprod->Dates               = date('Y-m-d H:i:s');
 
 
+        $insertprod->pro_image           = $_FILES['img1']['name'];
+        $tmp_name                        = $_FILES['img1']['tmp_name'];
 
+        $insertprod->pro_image1          = $_FILES['img2']['name'];
+        $tmp_name1                       = $_FILES['img2']['tmp_name'];
 
-    include("include/header.php");    
+        $insertprod->pro_image2          = $_FILES['img3']['name'];
+        $tmp_name2                       = $_FILES['img3']['tmp_name'];
+
+        $path                            = "../UploadImages";
+        $path1                           = "../UploadImages";
+        $path2                           = "../UploadImages";
+
+        //here give id categories
+        $cat                             = $_POST['categories'];
+        $giveIdCat                       = $insertprod->ViewIdCategories($cat);
+        foreach ($giveIdCat as $value){
+        $insertprod->cat_id = $value['cat_id'];
+        }
+        //end code
+
+        $insertprod->InsertProduct();
+        echo '<meta http-equiv="refresh" content="0">';   
+    }    
 ?>
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                 <!-- Widgets  -->
                 <div class="row">
                     <div class="col-lg-12 col-xs-6 col-sm-6">
@@ -91,7 +125,12 @@
                                         <div class="input-group-addon"><i class="fa ti-layout-grid3"></i></div>
                                         <select name="categories">
                                             <?php
-
+                                                $Printer = $insertprod->ViewCategories();
+                                                foreach ($Printer as $value) {
+                                                    echo"<option>";
+                                                       echo  $value['cat_name'];
+                                                    echo"</option>";
+                                                }
                                             ?>
                                         </select>
                                     </div>
