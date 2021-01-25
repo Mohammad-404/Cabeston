@@ -1,49 +1,124 @@
 <?php
+    
+
+
+
+
     include("include/header.php");    
 ?>
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
+                <form action="" method="post">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-12 col-xs-6 col-sm-6">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Sales</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="card-header">
+                                <strong>Products</strong> <small> Maneger Products</small>
                             </div>
-                        </div>
-                    </div>
+                            <div class="card-body card-block">
 
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Product Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-shopping-cart"></i></div>
+                                        <input class="form-control" type="text" name="proname">
                                     </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Number Products</div>
-                                        </div>
-                                    </div>
+                                    <small class="form-text text-muted">ex. TV</small>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Product Description</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-leaf"></i></div>
+                                        <input class="form-control" type="text" name="prodesc">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Good Product</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Price</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                        <input class="form-control" type="number" name="price">
+                                    </div>
+                                    <small class="form-text text-muted">ex. JD 10</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Quantities</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
+                                        <input class="form-control" type="number" name="quan">
+                                    </div>
+                                    <small class="form-text text-muted">ex. 1 or More</small>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Image(1)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa ti-gallery"></i></div>
+                                        <input class="form-control" type="file" name="img1" required="required">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Select Image product</small>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Image(2)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa ti-gallery"></i></div>
+                                        <input class="form-control" type="file" name="img2">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Select Image product</small>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Image(3)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa ti-gallery"></i></div>
+                                        <input class="form-control" type="file" name="img3">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Select Image product</small>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Categories</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa ti-layout-grid3"></i></div>
+                                        <select name="categories">
+                                            <?php
+
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <small class="form-text text-muted">ex. Electronic</small>
+                                </div> 
+
+
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Phone input</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                        <input class="form-control" type="text" name="phone" maxlength="10">
+                                    </div>
+                                    <small class="form-text text-muted">ex. (+962) 999-9999</small>
+                                </div>
+
+
+
+
+                                    <button name="sub" class="btn btn-success"><i class="fa fa-magic"></i>&nbsp; Insert</button>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </form>
                 <!-- /Widgets -->
 
         <?php
