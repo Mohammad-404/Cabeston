@@ -1,8 +1,26 @@
 <?php
 	session_start();
+  if (!isset($_SESSION['user_id'])) {
+    header("location: index.php");
+  }
 	include('classes/viewUser.php');
 	$ReadUser	= new ReadUser();
 	$id 		= $_SESSION['user_id'];
+
+  if (isset($_POST['sub'])) {
+    $ReadUser->name       = $_POST['name'];
+    $ReadUser->email      = $_POST['email'];
+    $ReadUser->password   = $_POST['password'];
+    $ReadUser->address    = $_POST['address'];
+    $ReadUser->phone      = $_POST['phone'];
+
+    $ReadUser->UpdateUserINFO($id);
+    header("location: profile.php");
+  }
+
+
+
+
 	$Results 	= $ReadUser->ReadProfile($id); 
 	foreach ($Results as $valueInfUser);
 
@@ -35,11 +53,12 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
+                  <form action="" method="post">
                     <div class="mt-3">
-                      <h4><?=$valueInfUser['cust_name'];?></h4>
-
-                      <?="<a href='updateUser.php?id={$_SESSION['user_id']}' class='btn btn-primary'>UPDATE</a>"?>
-                    
+                      <h4>
+                      <input type="text" name="name" value="<?=$valueInfUser['cust_name'];?>">
+                      </h4>
+                      <button name="sub" class="btn btn-danger">SAVE</button>
                     </div>
                   </div>
                 </div>
@@ -53,7 +72,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_email'];?>
+                      <input type="email" name="email" value="<?=$valueInfUser['cust_email'];?>">
                     </div>
                   </div>
                   <hr>
@@ -62,7 +81,7 @@
                       <h6 class="mb-0">Phone</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_mobile'];?>
+                      <input type="text" name="phone" maxlength="10" value="<?=$valueInfUser['cust_mobile'];?>">
                     </div>
                   </div>
                   <hr>
@@ -71,7 +90,7 @@
                       <h6 class="mb-0">Password</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_password'];?>
+                    <input type="text" name="password" value="<?=$valueInfUser['cust_password'];?>">
                     </div>
                   </div>
                   <hr>
@@ -80,7 +99,7 @@
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_address'];?>
+                    <input type="text" name="address" value="<?=$valueInfUser['cust_address'];?>">
                     </div>
                   </div>
                 </div>
@@ -89,7 +108,7 @@
           </div>
         </div>
     </div>
-
+  </form>
 
 
 
