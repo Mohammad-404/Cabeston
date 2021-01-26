@@ -8,7 +8,7 @@
 				<div class="footer-columns-entry">
 					<div class="row">
 						<div class="col-md-3">
-							<img alt="" src="img/footer-logo.png" class="footer-logo">
+							<img src="img/logo2021.jpg" class="footer-logo logofoter">
 							<div class="footer-description">s hdas dasjsk dkjas</div>
 							<div class="footer-address">Amman<br> Phone: +962 795 439 152<br> Email: <a href="mailto:Support@demo.com">
 								m.almasri97.me@gmail.com

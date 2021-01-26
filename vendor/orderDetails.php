@@ -38,7 +38,6 @@
                                             $Printers    = $orders->ReadOrders($id_vendor);
                                             if ($Printers) {
                                             foreach ($Printers as $Rows) {
-                                            $SubTotal = $Rows['total']*$Rows['qty'];
                                         ?>
                                         <tr>
                                             <td><?php echo $Rows['cust_id']; ?></td>
@@ -48,12 +47,13 @@
                                             <td><?php echo $Rows['cust_address']; ?></td>
                                             <td><?php echo $Rows['pro_name']; ?></td>
                                             <td><?php echo $Rows['qty']; ?></td>
+                                            <td><?php echo "JD ".$Rows['pro_price']; ?></td>
                                             <td><?php echo "JD ".$Rows['total']; ?></td>
-                                            <td><?php echo "JD ".$SubTotal; ?></td>
                                         </tr>
                                         <?php
                                             }
                                         }
+
                                         ?>
                                     </tbody>
                                 </table>

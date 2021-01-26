@@ -3,5 +3,5 @@
 	$orders = new orders();
 	$id_order = $_GET['id'];
 	$orders->DeleteOrders($id_order);
-	header("location: orderVendor.php");
+	header("location: filterOrders.php");
 ?>

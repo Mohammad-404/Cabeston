@@ -7,7 +7,7 @@ if( !headers_sent() && '' == session_id() ) {
 <!DOCTYPE html>
 <html class="no-js">
 <head>
-	<title>Home page | LookCare</title>
+	<title>E-Shoping</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
@@ -145,6 +145,13 @@ if( !headers_sent() && '' == session_id() ) {
 		.shadows{
 			box-shadow: 5px 5px 10px black !important;
 		}
+		.logoimg{
+			width: 200px;
+			height: 100px;
+		}
+		.logofoter{
+			width: 200px;
+		}
 	</style>
 </head>
 
@@ -276,18 +283,17 @@ if( !headers_sent() && '' == session_id() ) {
 
 			<!-- Search section for responsive design -->
 			<div class="tb-search pull-left">
-				<a href="#" class="b-dropdown"><i class="fa fa-search square-2 rounded-1 bg-color white"></i></a>
+<!-- 				<a href="#" class="b-dropdown"><i class="fa fa-search square-2 rounded-1 bg-color white"></i></a>
 				<div class="b-dropdown-block">
 					<form>
-						<!-- Input Group -->
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Type Something">
-									<span class="input-group-btn">
-										<button class="btn btn-color" type="button">Search</button>
-									</span>
+								<span class="input-group-btn">
+									<button class="btn btn-color" type="button">Search</button>
+								</span>
 						</div>
 					</form>
-				</div>
+				</div> -->
 			</div>
 			<!-- Search section ends -->
 
@@ -317,21 +323,23 @@ if( !headers_sent() && '' == session_id() ) {
 				<div class="col-md-4 col-sm-4">
 					<!-- Logo section -->
 					<div class="logo">
-						<h1><a href="index.html"><i class="fa fa-bookmark-o"></i> LookCare</a></h1>
+						<h1><a href="index.php"><i class="fa fa-bookmark-o"></i>
+							<img class="logoimg" src="img/logo2021.jpg">
+						</a></h1>
 					</div>
 				</div>
 				<div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-3 hidden-xs">
 					<!-- Search Form -->
 					<div class="header-search">
-						<form>
-							<!-- Input Group -->
+<!-- 						<form>
+							
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="Type Something">
 										<span class="input-group-btn">
 											<button class="btn btn-color" type="button">Search</button>
 										</span>
 							</div>
-						</form>
+						</form> -->
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,11 @@
 <?php
-    include("include/header.php");    
+    session_start();
+    include("classes/totals.php");
+    $status = new status();
+    $id     = $_SESSION['vendor_id']; 
+    $Final  = $status->ReadMoneyCountProd($id);
+    foreach ($Final as $FR);
+    include("include/header.php"); 
 ?>
         <!-- Content -->
         <div class="content">
@@ -16,7 +22,9 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
+                                            <div class="stat-text">$<span class="count">
+                                                <?=$FR['AllTotal'];?>
+                                            </span></div>
                                             <div class="stat-heading">Sales</div>
                                         </div>
                                     </div>
@@ -35,7 +43,9 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
+                                            <div class="stat-text"><span class="count">
+                                                <?=$FR['AllPRO']?>
+                                            </span></div>
                                             <div class="stat-heading">Number Products</div>
                                         </div>
                                     </div>

@@ -27,7 +27,6 @@
                                             <th>Product ID</th>
                                             <th>Quantites</th>
                                             <th>Total</th>
-                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -44,12 +43,6 @@
                                             <td><?php echo $Rows['pro_id']; ?></td>
                                             <td><?php echo $Rows['qty']; ?></td>
                                             <td><?php echo "JD ".$Rows['total']; ?></td>
-                                            <?="
-                                            <td>
-                                            <a href='deleteOrders.php?id={$Rows['order_id']}' 
-                                                class='btn btn-danger t'>DELETE</a>
-                                            </td>
-                                            ";?>
                                         </tr>
                                         <?php
                                             }
