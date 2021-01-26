@@ -152,6 +152,9 @@ if( !headers_sent() && '' == session_id() ) {
 		.logofoter{
 			width: 200px;
 		}
+		.colorprice{
+			color:green !important;
+		}
 	</style>
 </head>
 
@@ -464,7 +467,7 @@ if( !headers_sent() && '' == session_id() ) {
 							</ul>
 						</li>
  -->
-						<li><a href="about.php">About Us</a></li>
+						<!-- <li><a href="about.php">About Us</a></li> -->
 						<li><a href="contact.php">Contact Us</a></li>
 					</ul>
 				</div>

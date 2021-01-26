@@ -80,7 +80,8 @@
 							<h4>
 								<a>{$row['pro_name']}</a>
 							</h4>
-							<p class='product-price'>$ {$row['pro_price']}</p>
+							<hr>
+							<p class='product-price colorprice'>$ {$row['pro_price']}</p>
 						</div>
 						";?>
 						<!-- .product-bio end -->

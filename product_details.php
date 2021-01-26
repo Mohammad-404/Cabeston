@@ -114,12 +114,22 @@
 
 							<h1 class="product_title"><?="{$value['pro_name']}"?></h1>
 							<p>
-								<?="{$value['qty']}"?>
+								<?="Name : {$value['vendor_name']}"?>
 							</p>
-
+							<p>
+								<?="Email : {$value['vendor_email']}"?>
+							</p>
+							<p>
+								<?="Date : {$value['Dates']}"?>
+							</p>
+							<p>
+								<?="Quantity : {$value['qty']}"?>
+							</p>
 							<div>
 								<p class="price">
-									<ins><span class="amount color_price">JD <?="{$value['pro_price']}"?></span></ins>
+									<ins><span class="amount color_price">
+										<span style="color:black;">Price :</span>
+										 JD <?="{$value['pro_price']}"?></span></ins>
 								</p>
 							</div>
 
