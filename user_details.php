@@ -1,11 +1,9 @@
 <?php
 	session_start();
-	include('classes/viewUser.php');
-	$ReadUser	= new ReadUser();
-	$id 		= $_SESSION['user_id'];
-	$Results 	= $ReadUser->ReadProfile($id); 
-	foreach ($Results as $valueInfUser);
-
+	include('classes/classuser_details.php');
+	$DetailsUser	= new DetailsUser();
+	$id 	       	= $_SESSION['user_id'];
+  $R      = $DetailsUser->DetailsCustomer($id); 
 	include('include/header.php');
 ?>
 
@@ -24,80 +22,73 @@
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
               <li class="breadcrumb-item active" aria-current="page">
-              
-              <?="<a href='user_details.php?id={$id}'>Orders Details</a>";?>  
-
+                <a href="profile.php">User Profile</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a>Orders Details</a>  
               </li>
             </ol>
           </nav>
           <!-- /Breadcrumb -->
     
           <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <div class="mt-3">
-                      <h4><?=$valueInfUser['cust_name'];?></h4>
+            <div class="col-lg-12 col-md-8">
 
-                      <?="<a href='updateUser.php?id={$_SESSION['user_id']}' class='btn btn-primary'>UPDATE</a>"?>
-                    
+              <?php
+                $R      = $DetailsUser->DetailsCustomer($id); 
+
+                  if ($R){ //is_array($Results) || is_object($Results)
+                  foreach ($R as $UserD){
+              ?>
+              <div class="card mb-3 shadows">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Order ID</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <?=$UserD['order_id'];?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Product Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <?=$UserD['pro_name'];?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Quantities</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <?=$UserD['qty'];?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Total</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <?=$UserD['total'];?>
+                    </div>
+                  </div>
+                  <br>
+                        </div>
+                      </div>
+                        <?php
+                          }
+                        }  
+                        ?>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_email'];?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_mobile'];?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Password</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_password'];?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?=$valueInfUser['cust_address'];?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-
-
-
-
 					 </div>
 				</div>
 			</div>

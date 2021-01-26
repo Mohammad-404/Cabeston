@@ -142,6 +142,9 @@ if( !headers_sent() && '' == session_id() ) {
 		.shadow-none {
 		    box-shadow: none!important;
 		}
+		.shadows{
+			box-shadow: 5px 5px 10px black !important;
+		}
 	</style>
 </head>
 
