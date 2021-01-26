@@ -108,11 +108,17 @@
                     </li>
                     <li class="menu-title">Orders Vendor</li><!-- /.menu-title -->
                     <li class="menu-item-has-children">
-                        <a href="#" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Orders</a>
+                        <a href="orderVendor.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Orders</a>
 <!--                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                         </ul> -->
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="orderDetails.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Orders Details</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="filterOrders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Filter Orders</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
