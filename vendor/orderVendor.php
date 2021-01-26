@@ -28,7 +28,6 @@
                                             <th>Quantites</th>
                                             <th>Total</th>
                                             <th>Delete</th>
-                                            <th>Update</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -47,13 +46,8 @@
                                             <td><?php echo "JD ".$Rows['total']; ?></td>
                                             <?="
                                             <td>
-                                            <a href='deleteProduct.php?id={$Rows['pro_id']}' 
+                                            <a href='deleteOrders.php?id={$Rows['order_id']}' 
                                                 class='btn btn-danger t'>DELETE</a>
-                                            </td>
-
-                                            <td>
-                                            <a href='updateProduct.php?id={$Rows['pro_id']}' 
-                                                class='btn btn-success t'>UPDATE</a>
                                             </td>
                                             ";?>
                                         </tr>

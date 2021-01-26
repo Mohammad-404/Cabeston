@@ -198,7 +198,7 @@
 
                             <a class="nav-link" href="../index.php"><i class="fa fa- user"></i>Home Page</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            <a class="nav-link" href="profileVendor.php"><i class="fa fa- user"></i>My Profile</a>
 
                             <a class="nav-link" href="include/logout.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>

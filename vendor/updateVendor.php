@@ -1,57 +1,89 @@
 <?php
     session_start();
-    include("include/header.php");  
     include("classes/ViewVendor.php");
     $Vendors = new Vendors();
-    $id = $_SESSION['vendor_id'];  
+
+    $id = $_SESSION['vendor_id'];
+
+    if (isset($_POST['sub'])) {
+        $Vendors->name           = $_POST["name"];
+        $Vendors->password       = $_POST["password"];
+        $Vendors->email          = $_POST["email"];
+        $Vendors->address        = $_POST["address"];
+        $Vendors->phone          = $_POST['phone'];
+
+        $Vendors->UpdateVindor($id);
+        header("location: profileVendor.php");
+ 
+    }    
+
+    $variable = $Vendors->ReadVendor($id);
+    foreach ($variable as $Row);
+
+    include("include/header.php");
 ?>
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
+                <form action="" method="post" enctype="multipart/form-data">
                 <!-- Widgets  -->
                 <div class="row">
+                    <div class="col-lg-12 col-xs-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>My Profile</strong> <small> Maneger Profile</small>
+                            </div>
+                            <div class="card-body card-block">
 
-                    <div class="card col-lg-12">
-                        <div class="card-header">
-                            <strong class="card-title">Profile Information</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Full Name</th>
-                                        <th scope="col">Password</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Phone</th>
-                                        <th>UPDATE</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        $Printer = $Vendors->ReadVendor($id); 
-                                        foreach ($Printer as $RowV) {
-                                    ?>
-                                    <tr>
-                                        <td><?=$RowV['name']?></td>
-                                        <td><?=$RowV['password']?></td>
-                                        <td><?=$RowV['email']?></td>
-                                        <td><?=$RowV['address']?></td>
-                                        <td><?=$RowV['phone']?></td>
-                                        <?php 
-                                            echo"<td><a class='btn btn-success' href='updateVendor.php'>UPDATE</a></td>"; 
-                                        ?>
-                                    </tr>
-                                    <?php
-                                        }
-                                    ?>
-                                </tbody>
-                            </table>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Name</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="name"
+                                        value="<?=$Row['name']?>" required="required">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Password</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="password"
+                                        value="<?=$Row['password']?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Email</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="email" name="email"
+                                        value="<?=$Row['email']?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Address</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="address"
+                                        value="<?=$Row['address']?>">
+                                    </div>
+                                </div> 
+
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Phone</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                        <input class="form-control" type="text" name="phone" maxlength="10" value="<?=$Row['phone']?>">
+                                    </div>
+                                </div>
+
+                                    <button name="sub" class="btn btn-success"><i class="fa fa-magic"></i>&nbsp; Update</button>
+
+                            </div>
                         </div>
                     </div>
-
                 </div>
+            </form>
                 <!-- /Widgets -->
 
         <?php

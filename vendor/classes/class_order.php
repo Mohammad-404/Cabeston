@@ -26,5 +26,10 @@
 			$result = $this->performQuery($query);
 			return 	  $this->fetchAll($result);
 		}
+
+		public function DeleteOrders($id_order){
+			$query = "DELETE FROM orders WHERE order_id = '$id_order'";
+			$this->performQuery($query);
+		}
 	}
 ?>
