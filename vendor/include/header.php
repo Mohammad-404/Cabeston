@@ -85,6 +85,11 @@
             height: 50px !important;
         }
 
+        .imgtables{
+            width: 100px !important;
+            height: 90px !important;   
+        }
+
     </style>
 </head>
 

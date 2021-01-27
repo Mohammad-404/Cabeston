@@ -155,6 +155,9 @@ if( !headers_sent() && '' == session_id() ) {
 		.colorprice{
 			color:green !important;
 		}
+		.imgcateee{
+			height: 150px !important;
+		}
 	</style>
 </head>
 

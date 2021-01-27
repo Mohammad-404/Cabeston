@@ -138,7 +138,7 @@
 						<?php
 						if (!empty($row['cat_image'])) {
 							echo"<a>
-								<img class='img-responsive' src='UploadImages/{$row['cat_image']}' alt='Not Found' />
+								<img class='img-responsive imgcateee' src='UploadImages/{$row['cat_image']}' alt='Not Found' />
 								</a>";
 						}else{
 							echo"<a>

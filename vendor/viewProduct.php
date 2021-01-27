@@ -43,10 +43,32 @@
                                             <td><?php echo $Rows['pro_desc']; ?></td>
                                             <td><?php echo $Rows['pro_price']; ?></td>
                                             <td><?php echo $Rows['qty']; ?></td>
-                                            <td><?php echo $Rows['pro_image']; ?></td>
-                                            <td><?php echo $Rows['pro_image1']; ?></td>
-                                            <td><?php echo $Rows['pro_image2']; ?></td>
+                                            <td>
+                                                <?php
+                                                 echo"
+                                                 <img class='imgtables' src='../UploadImages/{$Rows['pro_image']}'>
+                                                    ";
+                                                 ?>
+                                                     
+                                            </td>
                                             
+                                            <td>
+                                                <?php
+                                                 echo"
+                                                 <img class='imgtables' src='../UploadImages/{$Rows['pro_image1']}'>
+                                                    ";
+                                                 ?>
+                                                     
+                                            </td>
+                                            
+                                            <td>
+                                                <?php
+                                                 echo"
+                                                 <img class='imgtables' src='../UploadImages/{$Rows['pro_image2']}'>
+                                                    ";
+                                                 ?>
+                                                     
+                                            </td>
                                             <?="
                                             <td>
                                             <a href='deleteProduct.php?id={$Rows['pro_id']}' 

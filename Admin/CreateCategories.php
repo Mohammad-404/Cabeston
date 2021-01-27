@@ -27,19 +27,19 @@
                     <div class="col-lg-12 col-xs-6 col-sm-6">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Create Slider</strong> <small> Maneger Slider</small>
+                                <strong>Create Categories</strong> <small> Maneger Categories</small>
                             </div>
                             <div class="card-body card-block">
 
                                 <div class="form-group">
-                                    <label class=" form-control-label">Text1 Slider</label>
+                                    <label class=" form-control-label">Name Categories</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" name="text1_slider" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class=" form-control-label">Text2 Slider</label>
+                                    <label class=" form-control-label">Categories Description</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" 
                                         name="text2_slider">

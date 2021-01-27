@@ -92,6 +92,10 @@
             width: 100px !important;
             height: 100px !important;               
         }
+        .imgtables{
+            width: 100px !important;
+            height: 100px !important;   
+        }
 
     </style>
 </head>
