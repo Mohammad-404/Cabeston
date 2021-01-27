@@ -84,6 +84,14 @@
             width: 50px !important;
             height: 50px !important;
         }
+        .imgview{
+            width: 100px !important;
+            height: 100px !important;   
+        }
+        .imagesss{
+            width: 100px !important;
+            height: 100px !important;               
+        }
 
     </style>
 </head>
@@ -127,6 +135,11 @@
                     <li class="menu-title">Slider Manegar</li><!-- /.menu-title -->
                     <li class="menu-item-has-children">
                         <a href="slider.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Info Slider</a>
+                    </li>
+
+                    <li class="menu-title">Categories Manegar</li><!-- /.menu-title -->
+                    <li class="menu-item-has-children">
+                        <a href="CreateCategories.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Info Categories</a>
                     </li>
 
                 </ul>

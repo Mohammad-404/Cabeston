@@ -8,6 +8,9 @@
 		public $email;
 		public $address;
 		public $phone;
+		public $text1;
+		public $text2;
+		public $image1;
 
 		public function ReadVendor($id){
 			$query  	= "SELECT * FROM vendor WHERE id_vendor ='$id'";
@@ -58,6 +61,38 @@
 		public function insertAdmin(){
 			$query = "INSERT INTO admin(admin_fullname,admin_password,admin_email)
 			VALUES('$this->name','$this->password','$this->email')";
+			$this->performQuery($query);
+		}
+
+		public function AddSlider(){
+			$query 	= "INSERT INTO slider(textone,texttow,image) 
+					  VALUES('$this->text1','$this->text2','$this->image1')";
+			$this->performQuery($query);
+		}
+
+		public function ViewSlider(){
+			$query 	= "SELECT * FROM slider";
+			$result = $this->performQuery($query);
+			return    $this->fetchAll($result);
+		}
+
+		public function ViewSliderby($id){
+			$query 	= "SELECT * FROM slider WHERE id_slider ='$id'";
+			$result = $this->performQuery($query);
+			return    $this->fetchAll($result);
+		}
+
+		public function DeleteSlider($id){
+			$query = "DELETE FROM slider WHERE id_slider = '$id'";
+			$this->performQuery($query);
+		}
+		
+		public function UpdateSlider($id){
+			$query = "UPDATE slider SET
+											textone 	= '$this->text1',
+											texttow 	= '$this->text2',
+											image  		= '$this->image1'	
+			WHERE id_slider = '$id'";
 			$this->performQuery($query);
 		}
 	}

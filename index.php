@@ -19,6 +19,7 @@
 							<div class="list">
 								<?php
 									$C = $homepage->ReadCategory();
+									if ($C) {
 									foreach ($C as $Ca) {
 								?>
 								<?="
@@ -28,7 +29,7 @@
 								"
 								?>
 								
-								<?php } ?>
+								<?php } } ?>
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -43,6 +44,7 @@
 											<!-- SLIDE  -->
 										<?php
 											$Result = $homepage->ReadSliders();
+											if ($Result) {
 											foreach ($Result as $Row) {
 										?>
 											<li data-target="_self" data-transition="flyin" data-slotamount="7" data-masterspeed="500" data-saveperformance="on">
@@ -78,6 +80,7 @@
 											</li>
 										<?php
 											}
+										}
 										?>
 										</ul>
 										<div class="slideshow_control"></div>
@@ -176,7 +179,13 @@
 						?>
 						
 						<!-- Hot tag -->
-						<span class="hot-tag bg-red">NEW</span>
+						<?php
+							if ($row['stat']) {
+								echo"<span class='hot-tag bg-red'>{$row['stat']}</span>";
+							}
+						?>
+						
+
 					</div>
 				</div>
 			<?php 
@@ -232,6 +241,7 @@
 										<?php
 										if ($homepage->ReadProducts()) {
 											$ResultProduct = $homepage->ReadProducts();
+											
 											foreach ($ResultProduct as $RowProduct) {
 										?>			
 										<div class="product  item first ">
