@@ -1,12 +1,9 @@
 <?php
     session_start();
-    include("classes/totals.php");
-    $status = new status();
-    
-    $Final  = $status->ReadMoneyCountProd();
-    foreach ($Final as $FR);
+    include("include/header.php");  
+    include("classes/ViewVendor.php");
 
-    include("include/header.php"); 
+    $Vendors = new Vendors(); 
 ?>
         <!-- Content -->
         <div class="content">
@@ -14,46 +11,48 @@
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">
-                                                <?=$FR['AllTotal'];?>
-                                            </span></div>
-                                            <div class="stat-heading">Sales</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <div class="card col-lg-12">
+                        <div class="card-header">
+                            <strong class="card-title">Profile Information</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Full Name</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Email</th>
+                                        <th>UPDATE</th>
+                                        <th>DELETE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $Printer = $Vendors->ReadAllAdmin(); 
+                                        if ($Printer) {
+                                        foreach ($Printer as $RowV) {
+                                    ?>
+                                    <tr>
+                                        <td><?=$RowV['admin_fullname']?></td>
+                                        <td><?=$RowV['admin_password']?></td>
+                                        <td><?=$RowV['admin_email']?></td>
+                                        <?php 
+                                            echo"<td><a class='btn btn-success' href='updateAdmin.php?id={$RowV['admin_id']}'>UPDATE</a></td>"; 
+                                        ?>
+                                        <?php 
+                                            echo"<td><a class='btn btn-danger' href='deleteAdmin.php?id={$RowV['admin_id']}'>DELETE</a></td>"; 
+                                        ?>
+                                    </tr>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">
-                                                <?=$FR['AllPRO']?>
-                                            </span></div>
-                                            <div class="stat-heading">Number Products</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /Widgets -->
 

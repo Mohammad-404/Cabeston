@@ -1,60 +1,63 @@
 <?php
     session_start();
-    include("classes/totals.php");
-    $status = new status();
-    
-    $Final  = $status->ReadMoneyCountProd();
-    foreach ($Final as $FR);
+    include("classes/ViewVendor.php");
+    $Vendors = new Vendors();
 
-    include("include/header.php"); 
+    if (isset($_POST['sub'])) {
+        $Vendors->name           = $_POST["name"];
+        $Vendors->password       = $_POST["password"];
+        $Vendors->email          = $_POST["email"];
+
+        $Vendors->insertAdmin();
+        echo '<meta http-equiv="refresh" content="0">';
+ 
+    }    
+
+    include("include/header.php");
 ?>
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
+                <form action="" method="post" enctype="multipart/form-data">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-12 col-xs-6 col-sm-6">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">
-                                                <?=$FR['AllTotal'];?>
-                                            </span></div>
-                                            <div class="stat-heading">Sales</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="card-header">
+                                <strong>Create Admin</strong> <small> Maneger Admin</small>
                             </div>
-                        </div>
-                    </div>
+                            <div class="card-body card-block">
 
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">
-                                                <?=$FR['AllPRO']?>
-                                            </span></div>
-                                            <div class="stat-heading">Number Products</div>
-                                        </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Name</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="name" required="required">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Password</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Email</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="email" name="email">
+                                    </div>
+                                </div>
+
+
+                                    <button name="sub" class="btn btn-success"><i class="fa fa-magic"></i>&nbsp; Insert</button>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </form>
                 <!-- /Widgets -->
 
         <?php
