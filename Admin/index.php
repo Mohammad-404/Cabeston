@@ -3,8 +3,11 @@
     include("classes/totals.php");
     $status = new status();
     
-    $Final  = $status->ReadMoneyCountProd();
+    $Final               = $status->ReadMoneyCountProd();
+    $CountClient         = $status->NumberClient();
+
     foreach ($Final as $FR);
+    foreach ($CountClient as $Clients);
 
     include("include/header.php"); 
 ?>
@@ -14,7 +17,7 @@
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -35,7 +38,7 @@
                     </div>
 
 
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -54,6 +57,29 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-4">
+                                        <i class="pe-7s-users"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text">
+                                                <span class="count">
+                                                 <?=$Clients['NumClient'];?>
+                                                </span>
+                                            </div>
+                                            <div class="stat-heading">Clients</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
                 </div>
                 <!-- /Widgets -->
 

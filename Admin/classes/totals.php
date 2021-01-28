@@ -13,6 +13,12 @@
 			$result = $this->performQuery($query);
 			return 	  $this->fetchAll($result);
  		}
+
+ 		public function NumberClient(){
+ 			$query 	= "SELECT COUNT(cust_id) AS NumClient FROM customer";
+			$result = $this->performQuery($query);
+			return 	  $this->fetchAll($result);
+ 		}
  	}
 
 ?>
