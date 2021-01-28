@@ -125,6 +125,12 @@
                     <li class="menu-item-has-children">
                         <a href="filterOrders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Filter Orders</a>
                     </li>
+
+                    <li class="menu-title">Orders Saved</li><!-- /.menu-title -->
+                    <li class="menu-item-has-children">
+                        <a href="saveOrders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Orders</a>
+                    </li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

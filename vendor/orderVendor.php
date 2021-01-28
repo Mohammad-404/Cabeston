@@ -1,8 +1,24 @@
 <?php
     include("include/header.php");  
     include("classes/class_order.php");
+    include_once("classes/classSaveOrders.php");
 
-    $orders = new orders();
+    $orders      = new orders();
+    $savesorders = new savesorders();
+    $idVendor    = $_SESSION["vendor_id"];
+
+    if (isset($_POST['sub'])) {
+        $savesorders->idOrder       = $_POST['orderid'];
+        $savesorders->DateOrder     = $_POST['orderdate'];
+        $savesorders->CustomerID    = $_POST['custid'];
+        $savesorders->ProductID     = $_POST['proid'];
+        $savesorders->Quantities    = $_POST['qty'];
+        $savesorders->Total         = $_POST['total'];
+
+        $Message = $savesorders->saves($idVendor);
+
+        // echo '<meta http-equiv="refresh" content="0">';
+    }
 ?>
         <!-- Content -->
         <div class="content">
@@ -15,8 +31,18 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
+                                <?php
+                                    if (isset($Message)) {
+                                        echo"
+                                        <div class='alert alert-primary' role='alert'>
+                                          $Message
+                                        </div>
+                                        ";
+                                    }
+                                ?>
                             </div>
                             <div class="card-body">
+                                <form action="" method="post">
                                 <table id="bootstrap-data-table" 
                                 class="table table-striped table-bordered">
                                     <thead>
@@ -27,6 +53,7 @@
                                             <th>Product ID</th>
                                             <th>Quantites</th>
                                             <th>Total</th>
+                                            <th>Save Orders</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,12 +64,55 @@
                                             foreach ($Printers as $Rows) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $Rows['order_id']; ?></td>
-                                            <td><?php echo $Rows['order_date']; ?></td>
-                                            <td><?php echo $Rows['cust_id']; ?></td>
-                                            <td><?php echo $Rows['pro_id']; ?></td>
-                                            <td><?php echo $Rows['qty']; ?></td>
-                                            <td><?php echo "JD ".$Rows['total']; ?></td>
+                                            <td>
+                                            <input type="number" name="orderid"
+                                            hidden="hidden"
+                                            value="<?php echo $Rows['order_id'];?>">
+
+                                            <?php echo $Rows['order_id'];?>
+
+                                            </td>
+                                            <td>
+                                            <input type="text" name="orderdate"
+                                            hidden="hidden"
+                                            value="<?php echo $Rows['order_date'];?>">
+
+                                            <?php echo $Rows['order_date']; ?>
+                                            </td>
+                                            <td>
+                                            <input type="number" name="custid"
+                                            hidden="hidden"
+                                            value="<?php echo $Rows['cust_id'];?>">
+
+                                                <?php echo $Rows['cust_id']; ?>
+                                            </td>
+                                            <td>
+
+                                            <input type="number" name="proid"
+                                            hidden="hidden"
+                                            value="<?php echo $Rows['pro_id'];?>">
+
+                                                <?php echo $Rows['pro_id']; ?>
+                                            </td>
+
+                                            <td>
+
+                                            <input type="number" name="qty"
+                                            hidden="hidden"
+                                            value="<?php echo $Rows['qty'];?>">
+                                            
+                                                <?php echo $Rows['qty']; ?>        
+                                            </td>
+
+                                            <td>
+
+                                            <input type="number" name="total"
+                                            hidden="hidden"
+                                            value="<?php echo $Rows['total'];?>">
+                                            
+                                            <?php echo "JD ".$Rows['total']; ?>    
+                                            </td>
+                                            <td><input type="submit" name="sub" value="Save" class="btn btn-primary"></td>
                                         </tr>
                                         <?php
                                             }
@@ -50,6 +120,7 @@
                                         ?>
                                     </tbody>
                                 </table>
+                            </form>
                             </div>
                         </div>
                     </div>

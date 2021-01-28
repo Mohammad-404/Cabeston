@@ -82,7 +82,7 @@
                                     <label class=" form-control-label">Price</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                        <input class="form-control" type="number" name="price">
+                                        <input class="form-control" type="text" name="price">
                                     </div>
                                     <small class="form-text text-muted">ex. JD 10</small>
                                 </div>

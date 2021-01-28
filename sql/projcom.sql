@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 06:26 AM
+-- Generation Time: Jan 28, 2021 at 06:41 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -61,7 +61,10 @@ CREATE TABLE `cetegory` (
 --
 
 INSERT INTO `cetegory` (`cat_id`, `cat_name`, `cat_desc`, `cat_image`, `stat`) VALUES
-(26, 'Man', 'Collection 2021', 'bg-title-01.jpg', '2021');
+(26, 'FreeBase', 'Collection 2021', 'freebase.jpg', 'New'),
+(27, 'Saltnic', 'Collection 2021', 'saltnic_vgod_applebomb_25mg.png', 'New'),
+(28, 'Coils&Pods', 'Collection 2021', 'coilsjpg-1542821694413.jpg', 'New'),
+(29, 'Device', 'Collection 2021', '5c61c7429ce5c.jpeg', 'New');
 
 -- --------------------------------------------------------
 
@@ -117,7 +120,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `order_date`, `cust_id`) VALUES
-(174, '2021-01-26', 94);
+(174, '2021-01-26', 94),
+(175, '2021-01-27', 94),
+(176, '2021-01-27', 94);
 
 -- --------------------------------------------------------
 
@@ -132,6 +137,16 @@ CREATE TABLE `order_details` (
   `qty` int(5) NOT NULL,
   `total` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_details_id`, `order_id`, `pro_id`, `qty`, `total`) VALUES
+(78, 175, 86, 1, 25),
+(79, 175, 91, 1, 40),
+(80, 175, 89, 1, 90),
+(81, 176, 86, 1, 25);
 
 -- --------------------------------------------------------
 
@@ -155,6 +170,42 @@ CREATE TABLE `products` (
   `Dates` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`pro_id`, `pro_name`, `pro_desc`, `pro_price`, `qty`, `pro_image`, `pro_image1`, `pro_image2`, `cat_id`, `vendor_id`, `vendor_name`, `vendor_email`, `Dates`) VALUES
+(86, 'Vapresso', 'Juce Freebase', '25', 5, 'vaporesso_gen_s_starter_kit.jpg', '1832.jpg', '', 26, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
+(87, 'Vapresso-Small', 'Pod', '24', 20, 'vaporesso-osmall-pod-starter-kit-black-image-1-67765_1588641903.jpg', '', '', 26, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
+(88, 'Vapresso Swag II KIT', 'مكفول مدى الحياة ', '50', 5, 'asdasd.jpg', '', '', 27, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
+(89, 'Gen S Kit', 'Offer 30%', '90', 5, 'images.jpg', 'vaporesso_gen_s_starter_kit__1.jpg', '', 29, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
+(90, 'PodStick Vapross', '', '55', 50, '33fa0eaf387f964eec702b2ef72bebd5.jpg', '', '', 26, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
+(91, 'Collection Device', '2021 offer 50%', '40', 10, '1832.jpg', '', '', 28, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `saveorders`
+--
+
+CREATE TABLE `saveorders` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `dateorder` date NOT NULL,
+  `custid` int(11) NOT NULL,
+  `proid` int(11) NOT NULL,
+  `qty` int(50) NOT NULL,
+  `total` int(150) NOT NULL,
+  `vendor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `saveorders`
+--
+
+INSERT INTO `saveorders` (`id`, `order_id`, `dateorder`, `custid`, `proid`, `qty`, `total`, `vendor_id`) VALUES
+(16, 176, '2021-01-27', 94, 86, 1, 25, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -167,6 +218,14 @@ CREATE TABLE `slider` (
   `texttow` varchar(250) NOT NULL,
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`id_slider`, `textone`, `texttow`, `image`) VALUES
+(10, 'Collection 2020', 'Offer 20%', '555.jpg'),
+(11, 'Collection 2021', 'New Offer', 'Voopoo-DRAG-S-60w-2.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,6 +242,13 @@ CREATE TABLE `vendor` (
   `phone` varchar(50) NOT NULL,
   `business` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `vendor`
+--
+
+INSERT INTO `vendor` (`id_vendor`, `name`, `password`, `email`, `address`, `phone`, `business`) VALUES
+(4, 'Mohammad', '123', 'm.almasri97.me@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor');
 
 --
 -- Indexes for dumped tables
@@ -237,6 +303,13 @@ ALTER TABLE `products`
   ADD KEY `vendor_id` (`vendor_id`);
 
 --
+-- Indexes for table `saveorders`
+--
+ALTER TABLE `saveorders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `vendor_id` (`vendor_id`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
@@ -263,7 +336,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cetegory`
 --
 ALTER TABLE `cetegory`
-  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `contactus`
@@ -275,37 +348,43 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `cust_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `order_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `order_details_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+
+--
+-- AUTO_INCREMENT for table `saveorders`
+--
+ALTER TABLE `saveorders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id_slider` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_slider` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
-  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -330,6 +409,12 @@ ALTER TABLE `order_details`
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `cetegory` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`id_vendor`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `saveorders`
+--
+ALTER TABLE `saveorders`
+  ADD CONSTRAINT `saveorders_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`id_vendor`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
