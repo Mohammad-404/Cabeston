@@ -1,4 +1,7 @@
 <?php
+    if ( !headers_sent() && "" == session_id()) {
+        session_start();
+    }
     include("include/header.php");  
     include("classes/DBConnection.php");
     include_once("classes/classSaveOrders.php");
@@ -32,7 +35,8 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $Printers  = $orders->ReadAllOrdersSave();
+                                            $idVendor = $_SESSION['vendor_id'];
+                                            $Printers  = $orders->ReadAllOrdersSave($idVendor);
                                             if ($Printers) {
                                             foreach ($Printers as $Rows) {
                                         ?>

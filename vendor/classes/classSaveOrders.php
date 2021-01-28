@@ -25,8 +25,8 @@
 			return $Message;
 		}
 
-		public function ReadAllOrdersSave(){
-			$query  	= "SELECT * FROM saveorders";
+		public function ReadAllOrdersSave($idVendor){
+			$query  	= "SELECT * FROM saveorders WHERE vendor_id='$idVendor'";
 			$result 	= $this->performQuery($query);
 			return 		  $this->fetchAll($result);
 		}
