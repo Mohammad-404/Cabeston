@@ -194,18 +194,29 @@
 			</div>
 			<!-- Pagination -->
 			<div class="shopping-pagination pull-right">
-				<ul class="pagination">
-					<li class="disabled"><a href="#">&laquo;</a></li>
 					<!-- <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li> -->
 					<?php
-						for ($page=1; $page <= $number_of_page ; $page++) { 
+						for ($i=1; $i <= $number_of_page ; $i++) { 
 					?>
 					<?php 
-						echo '<li> <a href="index.php?page='.$page.'">'.$page.'</a></li>'; 
+					echo '<ul class="pagination">';
+					if ($page > ($number_of_page)) {
+						echo '<li class="">
+						<a href="index.php?page='.($page-1).'">&laquo;</a>
+						</li>';
+					}
+						echo '
+						<li> 
+						<a href="index.php?page='.$i.'">'.$i.'</a>
+						</li>'; 
+						
+						if ($page < ($number_of_page)) {
+							echo '<li><a href="index.php?page='.($page+1).'">&raquo;</a></li>';
 						}
+
+					echo "</ul>";	
+					}
 					?>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
 			</div>
 			<!-- Pagination end-->
 		</div>

@@ -226,6 +226,8 @@
 
                             <a class="nav-link" href="profileAdmin.php"><i class="fa fa- user"></i>Profiles Admin</a>
 
+                            <a class="nav-link" href="customer.php"><i class="fa fa- user"></i>Profiles Customers</a>
+
                             <a class="nav-link" href="include/logout.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
