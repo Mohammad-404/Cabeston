@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2021 at 06:41 PM
+-- Generation Time: Jan 29, 2021 at 01:49 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -204,7 +204,9 @@ CREATE TABLE `saveorders` (
 --
 
 INSERT INTO `saveorders` (`id`, `order_id`, `dateorder`, `custid`, `proid`, `qty`, `total`, `vendor_id`) VALUES
-(16, 176, '2021-01-27', 94, 86, 1, 25, 4);
+(16, 176, '2021-01-27', 94, 86, 1, 25, 4),
+(17, 176, '2021-01-27', 94, 86, 1, 25, 4),
+(18, 176, '2021-01-27', 94, 86, 1, 25, 4);
 
 -- --------------------------------------------------------
 
@@ -248,7 +250,31 @@ CREATE TABLE `vendor` (
 --
 
 INSERT INTO `vendor` (`id_vendor`, `name`, `password`, `email`, `address`, `phone`, `business`) VALUES
-(4, 'Mohammad', '123', 'm.almasri97.me@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor');
+(4, 'Mohammad', '123', 'm.almasri97.me@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor'),
+(15, 'Admin2020', '123', 'osama2020@gmail.com', 'Zarqa/Street 16', '0795439152', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendoraccept`
+--
+
+CREATE TABLE `vendoraccept` (
+  `id_vendor` int(50) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `phone` varchar(250) NOT NULL,
+  `business` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `vendoraccept`
+--
+
+INSERT INTO `vendoraccept` (`id_vendor`, `name`, `password`, `email`, `address`, `phone`, `business`) VALUES
+(3, 'Admin', '123', 'osama2020@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor');
 
 --
 -- Indexes for dumped tables
@@ -323,6 +349,12 @@ ALTER TABLE `vendor`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `vendoraccept`
+--
+ALTER TABLE `vendoraccept`
+  ADD PRIMARY KEY (`id_vendor`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -372,7 +404,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `saveorders`
 --
 ALTER TABLE `saveorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `slider`
@@ -384,7 +416,13 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
-  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `vendoraccept`
+--
+ALTER TABLE `vendoraccept`
+  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

@@ -228,6 +228,10 @@
 
                             <a class="nav-link" href="customer.php"><i class="fa fa- user"></i>Profiles Customers</a>
 
+
+                            <a class="nav-link" href="AcceptVendor.php"><i class="fa fa- user"></i>Accept Vendor</a>
+
+
                             <a class="nav-link" href="include/logout.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>

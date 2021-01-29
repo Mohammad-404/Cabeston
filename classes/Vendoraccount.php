@@ -10,7 +10,7 @@ class vendorsign extends dbconnection{
 
 	public function CreateVendor(){
 		$query  = 
-		"INSERT INTO vendor(name,password,email,address,phone,business)
+		"INSERT INTO vendoraccept(name,password,email,address,phone,business)
 		Values('$this->name','$this->password','$this->email','$this->address','$this->phone'
 		,'$this->business')";
 		
