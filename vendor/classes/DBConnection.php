@@ -1,5 +1,5 @@
 <?php
-	include("config.php");
+	include("../classes/config.php");
 
 	class dbconnection
 	{

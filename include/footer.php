@@ -9,7 +9,7 @@
 					<div class="row">
 						<div class="col-md-3">
 							<img src="img/logo2021.jpg" class="footer-logo logofoter">
-							<div class="footer-description">s hdas dasjsk dkjas</div>
+							<div class="footer-description">Shoping</div>
 							<div class="footer-address">Amman<br> Phone: +962 795 439 152<br> Email: <a href="mailto:Support@demo.com">
 								m.almasri97.me@gmail.com
 							</a><br>
@@ -41,7 +41,7 @@
 						<div class="clearfix visible-sm-block"></div>
 						<div class="col-md-3">
 							<h3 class="column-title">Company working hours</h3>
-							<div class="footer-description">ajksbashbdkjsabd</div>
+							<div class="footer-description">Welcome</div>
 							<div class="footer-description">
 								<b>Monday-Friday:</b> 8.30 a.m. - 5.30 p.m.<br>
 								<b>Saturday:</b> 9.00 a.m. - 2.00 p.m.<br>

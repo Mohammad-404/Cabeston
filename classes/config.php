@@ -3,3 +3,4 @@
 	const DBUSER 	= "root";
 	const DBPASS 	= "";
 	const DBNAME 	= "projcom";
+?>

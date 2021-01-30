@@ -15,7 +15,7 @@ class vendorsign extends dbconnection{
 		,'$this->business')";
 		
 		if ($this->performQuery($query)) {
-			header("location: login.php");
+			$Error = "Your Account is Under Review !";
 		}else{
 			$Error = "Email Already Exists";
 		}
