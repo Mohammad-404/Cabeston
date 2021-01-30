@@ -111,25 +111,27 @@
 										<div class="shopping-pagination pull-right">
 												<!-- <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li> -->
 												<?php
+
+												echo '<ul class="pagination">';
+
+													if ($page != 1) {
+														echo '<li class="">
+														<a href="product.php?page='.($page-1).'">&laquo;</a>
+														</li>';
+													}
+
 													for ($i=1; $i <= $number_of_page ; $i++) { 
 												?>
 												<?php 
 
-													echo '<ul class="pagination">';
-													if ($page > ($number_of_page)) {
-														echo '<li class="">
-														<a href="index.php?page='.($page-1).'">&laquo;</a>
-														</li>';
-													}
 													echo '<li> 
 													<a href="product.php?id='.$_GET['id'].'&page='.$i.'">'.$i.'</a></li>'; 
-													
-													if ($page < ($number_of_page)) {
-														echo '<li><a href="index.php?page='.($page+1).'">&raquo;</a></li>';
 													}
 
-														echo "</ul>";
+													if ($page < ($number_of_page)) {
+														echo '<li><a href="product.php?page='.($page+1).'">&raquo;</a></li>';
 													}
+												echo "</ul>";
 												?>
 										</div>
 										<!-- Pagination end-->
