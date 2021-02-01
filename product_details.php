@@ -114,10 +114,10 @@
 
 							<h1 class="product_title"><?="{$value['pro_name']}"?></h1>
 							<p>
-								<?="Name : {$value['vendor_name']}"?>
+								<?="Name : {$value['name']}"?>
 							</p>
 							<p>
-								<?="Email : {$value['vendor_email']}"?>
+								<?="Email : {$value['email']}"?>
 							</p>
 							<p>
 								<?="Date : {$value['Dates']}"?>
