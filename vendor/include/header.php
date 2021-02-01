@@ -107,8 +107,17 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Products</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="addproduct.php">Create Post</a></li>
-                            <li><i class="fa fa-table"></i><a href="viewProduct.php">View Products</a></li>
+                            <li>
+                                <i class="fa fa-table"></i>
+                                <a href="addproduct.php">Create Post</a>
+                            </li>
+
+                            <li><i style="color:red;" class="fa fa-table"></i><a style="color:red;" href="viewProduct.php">View Products Pending</a>
+                            </li>
+                            <li>
+                                <i style="color:blue;" class="fa fa-table"></i>
+                                <a style="color:blue;" href="ViewProductsAccept.php">View Products Accept</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="menu-title">Orders Vendor</li><!-- /.menu-title -->
@@ -153,7 +162,7 @@
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                       <!--  <button class="search-trigger"><i class="fa fa-search"></i></button> -->
                         <div class="form-inline">
                             
                             <form class="search-form">

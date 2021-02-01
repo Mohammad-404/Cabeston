@@ -114,7 +114,17 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Products</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="viewProduct.php">View Products</a></li>
+                        
+                        <li>
+                            <i class="fa fa-table"></i>
+                            <a href="viewProduct.php">View Products</a>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-table"></i>
+                            <a style="color:blue;" href="AcceptProduct.php">Accept Products</a>
+                        </li>
+
                         </ul>
                     </li>
                     <li class="menu-title">Orders Vendor</li><!-- /.menu-title -->
@@ -168,7 +178,8 @@
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                       <!--  <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        --> 
                         <div class="form-inline">
                             
                             <form class="search-form">
@@ -178,7 +189,7 @@
                         
                         </div>
 
-                        <div class="dropdown for-notification">
+<!--                         <div class="dropdown for-notification">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-bell"></i>
                                 <span class="count bg-danger">3</span>
@@ -190,9 +201,9 @@
                                     <p>Server #1 overloaded.</p>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="dropdown for-message">
+<!--                         <div class="dropdown for-message">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-envelope"></i>
                                 <span class="count bg-primary">4</span>
@@ -209,7 +220,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+ -->                    </div>
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" 

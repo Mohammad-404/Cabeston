@@ -2,6 +2,8 @@
 if( !headers_sent() && '' == session_id() ) {
 	session_start();
 }
+	include_once('classes/DBConnection.php');
+	include_once('classes/homepage.php');
 	include("include/db.php");
 ?>
 <!DOCTYPE html>
@@ -13,6 +15,8 @@ if( !headers_sent() && '' == session_id() ) {
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="img/favicon.ico">
 
@@ -389,63 +393,27 @@ if( !headers_sent() && '' == session_id() ) {
 							</ul>
 						</li>
  -->
-<!-- 
-						<li><a href="#">Category</a>
-							<ul>
-								<li><a href="#">Laptop</a>
-									<ul>
-										<li><a href="#">Vaio</a></li>
-										<li><a href="#">Samsung</a></li>
-										<li><a href="#">Toshiba</a></li>
-										<li><a href="#">HP</a></li>
+ 						<li><a href="#">Category</a>
+ 							<ul>
+						<?php
+							$homepagess = new HomePage();
+							$rop = $homepagess->ReadC();
+							if ($rop) {
+							foreach ($rop as $Ca) {
 
-									</ul>
-								</li>
-								<li><a href="#">Smartphone</a>
-									<ul>
-										<li><a href="#">Iphone</a></li>
-										<li><a href="#">Oppo</a></li>
-										<li><a href="#">Nokia</a></li>
-										<li><a href="#">Sony</a></li>
-										<li><a href="#">Samsung</a></li>
-
-									</ul>
-								</li>
-								<li><a href="#">Accessories</a>
-									<ul>
-										<li><a href="#">Headphone</a></li>
-										<li><a href="#">Adapter</a></li>
-										<li><a href="#">Bag</a></li>
-										<li><a href="#">Baby doll</a></li>
-
-									</ul>
-								</li>
+							echo"
+							  <li>
+							  <a href='product.php?id={$Ca['cat_id']}'>
+							  {$Ca['cat_name']}
+							  </a>
+							  </li>
+							";
+						?>			
 								
-								<li><a href="#">Multi Level Menu</a>
-									<ul>
-									
-										<li><a href="#">Menu #1</a></li>
-										<li><a href="#">Menu #1</a></li>
-										<li><a href="#">Menu #1</a>
-											<ul>
-												
-												<li><a href="#">Menu #2</a></li>
-												<li><a href="#">Menu #2</a></li>
-												<li><a href="#">Menu #2</a>
-													<ul>
-														
-														<li><a href="#">Menu #3</a></li>
-														<li><a href="#">Menu #3</a></li>
-														<li><a href="#">Menu #3</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
+						<?php } } ?>
 							</ul>
 						</li>
- -->
+
 <!-- 
 						<li><a href="#">Blog</a>
 							<ul>

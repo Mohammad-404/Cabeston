@@ -1,8 +1,12 @@
 <?php
-    include("include/header.php");
-    
+    session_start();
+
     include("classes/createproduct_class.php");
     $insertprod = new insertprod();
+    $id = $_GET['id'];
+
+    $viewdata = $insertprod->ViewProductsAccept($id);
+    foreach ($viewdata as $viewrow);
 
     if (isset($_POST['sub'])) {
         $insertprod->pro_name            = $_POST["proname"];
@@ -16,6 +20,9 @@
         // $insertprod->nico                = $_POST['nico'];
         $insertprod->size                = $_POST['size'];
 
+
+        if ($_FILES['img1']['name'] != "" && $_FILES['img1']['name'] != "" 
+            && $_FILES['img1']['name'] != "") {
         $insertprod->pro_image           = $_FILES['img1']['name'];
         $tmp_name                        = $_FILES['img1']['tmp_name'];
 
@@ -32,7 +39,11 @@
         move_uploaded_file($tmp_name, $path.$insertprod->pro_image);
         move_uploaded_file($tmp_name1, $path.$insertprod->pro_image1);
         move_uploaded_file($tmp_name2, $path.$insertprod->pro_image2);
-
+    }else{
+        $insertprod->pro_image  = $viewrow['pro_image'];
+        $insertprod->pro_image1 = $viewrow['pro_image1'];
+        $insertprod->pro_image2 = $viewrow['pro_image2'];
+    }
         //here give id categories
         $cat                             = $_POST['categories'];
         $giveIdCat                       = $insertprod->ViewIdCategories($cat);
@@ -41,9 +52,13 @@
         }
         //end code
 
-        $insertprod->InsertProduct();
-        echo '<meta http-equiv="refresh" content="0">';   
-    }    
+        $insertprod->UpdateProductsAccept($id);
+        header("location: ViewProductsAccept.php");              
+    }
+
+
+    include("include/header.php");
+        
 ?>
         <!-- Content -->
         <div class="content">
@@ -64,7 +79,8 @@
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-shopping-cart"></i></div>
-                                        <input class="form-control" type="text" name="proname">
+                                        <input class="form-control" type="text" name="proname"
+                                        value="<?=$viewrow['pro_name']?>">
                                     </div>
                                     <small class="form-text text-muted">ex. TV</small>
                                 </div>
@@ -74,7 +90,8 @@
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-leaf"></i></div>
-                                        <input class="form-control" type="text" name="prodesc">
+                                        <input class="form-control" type="text" name="prodesc"
+                                        value="<?=$viewrow['pro_desc']?>">
                                     </div>
                                     <small class="form-text text-muted">ex. Good Product</small>
                                 </div>
@@ -83,7 +100,8 @@
                                     <label class=" form-control-label">Price</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                        <input class="form-control" type="text" name="price">
+                                        <input class="form-control" type="number" name="price"
+                                        value="<?=$viewrow['pro_price']?>">
                                     </div>
                                     <small class="form-text text-muted">ex. JD 10</small>
                                 </div>
@@ -92,16 +110,20 @@
                                     <label class=" form-control-label">Quantities</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
-                                        <input class="form-control" type="number" name="quan">
+                                        <input class="form-control" type="number" name="quan"
+                                        value="<?=$viewrow['qty']?>">
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 
-<!-- 
-                                <div class="form-group">
+
+
+    <!--                             <div class="form-group">
                                     <label class=" form-control-label">Nicotine Strength</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
-                                        <input class="form-control" type="text" name="nico">
+                                        <input class="form-control" type="text" 
+                                        name="nico" 
+                                        value="">
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 
@@ -110,23 +132,40 @@
                                     <label class=" form-control-label">Bottle Size</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
-                                        <input class="form-control" type="text" name="size">
+                                        <input class="form-control" type="text" 
+                                        name="size"
+                                        value="<?=$viewrow['size']?>">
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 
 
 
+
+
+
                                 <div class="form-group">
                                     <label class=" form-control-label">Image(1)</label>
+                                    <br>
+                                    <?php
+                                        echo"
+                                            <img class='imgupdate' src='../UploadImages/{$viewrow['pro_image']}'>
+                                        ";
+                                    ?>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa ti-gallery"></i></div>
-                                        <input class="form-control" type="file" name="img1" required="required">
+                                        <input class="form-control" type="file" name="img1">
                                     </div>
                                     <small class="form-text text-muted">ex. Select Image product</small>
                                 </div> 
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Image(2)</label>
+                                    <br>
+                                    <?php
+                                        echo"
+                                            <img class='imgupdate' src='../UploadImages/{$viewrow['pro_image1']}'>
+                                        ";
+                                    ?>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa ti-gallery"></i></div>
                                         <input class="form-control" type="file" name="img2">
@@ -136,6 +175,12 @@
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Image(3)</label>
+                                    <br>
+                                    <?php
+                                        echo"
+                                            <img class='imgupdate' src='../UploadImages/{$viewrow['pro_image2']}'>
+                                        ";
+                                    ?>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa ti-gallery"></i></div>
                                         <input class="form-control" type="file" name="img3">
@@ -161,21 +206,7 @@
                                     <small class="form-text text-muted">ex. Electronic</small>
                                 </div> 
 
-
-
-<!--                                 <div class="form-group">
-                                    <label class=" form-control-label">Phone input</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                                        <input class="form-control" type="text" name="phone" maxlength="10">
-                                    </div>
-                                    <small class="form-text text-muted">ex. (+962) 999-9999</small>
-                                </div> -->
-
-
-
-
-                                    <button name="sub" class="btn btn-success"><i class="fa fa-magic"></i>&nbsp; Insert</button>
+                                    <button name="sub" class="btn btn-primary"><i class="fa fa-magic"></i>&nbsp; Update</button>
 
                             </div>
                         </div>

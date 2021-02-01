@@ -18,6 +18,12 @@
 			return 		  $this->fetchAll($result);
 		}
 
+		//view category
+		public function ReadC(){
+			$query    	= "SELECT * FROM cetegory";
+			$result 	= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
 
 		//view Products
 		public function ReadProducts(){

@@ -17,7 +17,8 @@
         $insertprod->vendor_name         = $_SESSION['vendor_name'];
         $insertprod->vendor_email        = $_SESSION['vendor_email'];
         $insertprod->Dates               = date('Y-m-d H:i:s');
-
+        // $insertprod->nico                = $_POST['nico'];
+        $insertprod->size                = $_POST['size'];
 
 
         if ($_FILES['img1']['name'] != "" && $_FILES['img1']['name'] != "" 
@@ -114,6 +115,33 @@
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 
+
+
+    <!--                             <div class="form-group">
+                                    <label class=" form-control-label">Nicotine Strength</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
+                                        <input class="form-control" type="text" 
+                                        name="nico" 
+                                        value="">
+                                    </div>
+                                    <small class="form-text text-muted">ex. 1 or More</small>
+                                </div> 
+ -->
+                                <div class="form-group">
+                                    <label class=" form-control-label">Bottle Size</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
+                                        <input class="form-control" type="text" 
+                                        name="size"
+                                        value="<?=$viewrow['size']?>">
+                                    </div>
+                                    <small class="form-text text-muted">ex. 1 or More</small>
+                                </div> 
+
+
+
+
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Image(1)</label>

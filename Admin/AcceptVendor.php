@@ -4,6 +4,7 @@
     $savesorders = new vendorsign();
 
     if (isset($_POST['sub'])) {
+        $id                         = $_POST['id'];
         $savesorders->email         = $_POST['email'];
         $savesorders->password      = $_POST['password'];
         $savesorders->address       = $_POST['address'];
@@ -11,7 +12,8 @@
         $savesorders->name          = $_POST['name'];
         $savesorders->business      = $_POST['business'];
 
-        $Message = $savesorders->CreateVendor();
+        $savesorders->CreateVendor();
+        $savesorders->DeletesVendorsac($id);
 
         //echo '<meta http-equiv="refresh" content="0">';
     }
@@ -29,15 +31,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
-                                <?php
-                                    if (isset($Message)) {
-                                        echo"
-                                        <div class='alert alert-primary' role='alert'>
-                                          $Message
-                                        </div>
-                                        ";
-                                    }
-                                ?>
                             </div>
                             <div class="card-body">
                                 <form action="" method="post">
@@ -52,7 +45,6 @@
                                             <th>Name</th>
                                             <th>Business</th>
                                             <th>Accept</th>
-                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -110,15 +102,17 @@
                                             
                                             <?php echo $Rows['business']; ?>    
                                             </td>
-                                            <td><input type="submit" name="sub" value="Save" class="btn btn-primary"></td>
 
-                                            <td>
-                                                <?php echo"
-                                                    <a href='deletevendoracc.php?id={$Rows['id_vendor']}' 
 
-                                                    class='btn btn-danger' style='color:white;'>Delete</a>
+                                            
+                                                <?="
+                                                <input type='hidden' name='id'
+                                                value='{$Rows['id_vendor']}'>
                                                 ";?>
-                                            </td>
+                                            
+
+
+                                            <td><input type="submit" name="sub" value="Save" class="btn btn-primary"></td>
                                             
                                         </tr>
                                         <?php

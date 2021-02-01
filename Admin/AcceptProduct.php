@@ -1,7 +1,44 @@
 <?php
     include("include/header.php");  
-    include("classes/view_product.php");
-    $ViewVendor = new ViewVendor();
+    include("classes/view_productAccepts.php");
+    $insertprod = new ViewVendor();
+    // if (isset($_GET['id'])) {
+       
+    // }
+    
+
+
+
+
+
+
+
+    if (isset($_POST['sub'])) {
+        $id  = $_POST['id'];
+        $RORO = $insertprod->ViewProductsID($id);
+        foreach ($RORO as $RERE);
+        
+        $insertprod->pro_name            = $_POST["p_name"];
+        $insertprod->pro_desc            = $_POST["p_desc"];
+        $insertprod->pro_price           = $_POST["p_price"];
+        $insertprod->qty                 = $_POST["p_qty"];
+        $insertprod->vendor_id           = $_POST["v_id"];
+
+        $insertprod->cat_id              = $_POST['c_id'];
+        $insertprod->vendor_id           = $_POST['v_id'];
+        $insertprod->Dates               = $_POST['Dates'];
+        $insertprod->size                = $_POST['size'];
+
+
+        $insertprod->pro_image            = $RERE['pro_image'];
+        $insertprod->pro_image1           = $RERE['pro_image1'];
+        $insertprod->pro_image2           = $RERE['pro_image2'];
+
+        $insertprod->InsertProduct();
+        $insertprod->DeleteProducts($id);
+        echo '<meta http-equiv="refresh" content="0">';   
+    }    
+
 ?>
         <!-- Content -->
         <div class="content">
@@ -14,36 +51,57 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
+                                <span style="color:blue;">Post Accept</span>
                             </div>
                             <div class="card-body">
+                                <form action="" method="post">
                                 <table id="bootstrap-data-table" 
                                 class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Price</th>
                                             <th>Quantities</th>
-                                            <th>Size</th>
                                             <th>Image1</th>
                                             <th>Image2</th>
                                             <th>Image3</th>
-                                            <th>Delete</th>
+                                            <th>Size</th>
+                                            <th>Accept</th> 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $Printers   = $ViewVendor->ViewProducts();
+                                            $Printers   = 
+                                            $insertprod->ViewProductsAccept();
                                             if ($Printers) {
                                             foreach ($Printers as $Rows) {
                                         ?>
                                         <tr>
+                                            <td><?php echo $Rows['pro_id']; ?></td>
+                                            <input type="int" name="p_id" hidden="hidden" value="<?=$Rows['pro_id']?>">
+
+
                                             <td><?php echo $Rows['pro_name']; ?></td>
-                                            <td><?php echo $Rows['pro_desc']; ?></td>
-                                            <td><?php echo $Rows['pro_price']; ?></td>
-                                            <td><?php echo $Rows['qty']; ?></td>
-                                            <td><?php echo $Rows['size']; ?></td>
+                                            <input type="text" name="p_name" hidden="hidden" value="<?=$Rows['pro_name']?>">
                                             
+                                            <td><?php echo $Rows['pro_desc']; ?></td>
+                                            <input type="text" name="p_desc" hidden="hidden" value="<?=$Rows['pro_desc']?>">
+
+                                            <td><?php echo $Rows['pro_price']; ?></td>
+                                            <input type="text" name="p_price" hidden="hidden" value="<?=$Rows['pro_price']?>">
+
+                                            <td><?php echo $Rows['qty']; ?></td>
+                                            <input type="text" name="p_qty" hidden="hidden" value="<?=$Rows['qty']?>">
+
+                                            <input type="text" name="c_id" hidden="hidden" value="<?=$Rows['cat_id']?>">
+
+                                            <input type="text" name="v_id" hidden="hidden" value="<?=$Rows['vendor_id']?>">
+
+                                            <input type="text" name="Dates" hidden="hidden" value="<?=$Rows['Dates']?>">
+
+                                            <input type="text" name="size" hidden="hidden" value="<?=$Rows['size']?>">
 
                                             <td>
                                                 <?php
@@ -72,20 +130,33 @@
                                                      
                                             </td>
 
-                                            
+                                            <td><?php echo $Rows['size']; ?></td>
+
+                                        <?="
+                                            <input type='hidden' name='id'
+                                            value='{$Rows['pro_id']}'
+                                            >
+                                        "?>
+                                        </form>
+
                                             <?="
+
                                             <td>
-                                            <a href='deleteProduct.php?id={$Rows['pro_id']}' 
-                                                class='btn btn-danger t'>DELETE</a>
+                                            <input type='submit' 
+                                            value='Accept' name='sub'
+                                            class='btn btn-primary t'>
                                             </td>
                                             ";?>
+
+                                            
+
                                         </tr>
                                         <?php
                                             }
                                         }
                                         ?>
                                     </tbody>
-                                </table>
+                                  </table>
                             </div>
                         </div>
                     </div>

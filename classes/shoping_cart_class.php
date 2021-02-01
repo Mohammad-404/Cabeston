@@ -8,6 +8,7 @@
 		public $quantity;
 		public $last_id;
 		public $total;
+		public $nico;
 
 		public function InsertDateOrder(){
 			$query 	= "INSERT INTO orders(order_date,cust_id) 
@@ -23,8 +24,9 @@
 		}
 
 		public function InsertDateOrderDetails(){
-			$query 		= "INSERT INTO order_details(order_id,pro_id,qty,total) 
-			VALUES('$this->last_id','$this->pro_id','$this->quantity','$this->total')";
+			$query 		= "INSERT INTO order_details(order_id,pro_id,qty,total,nico) 
+			VALUES('$this->last_id','$this->pro_id','$this->quantity','$this->total'
+			,'$this->nico')";
 			$result 	= $this->performQuery($query); 
 			return 		  $this->fetchAll($result);
 		}

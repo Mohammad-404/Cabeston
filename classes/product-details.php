@@ -15,7 +15,10 @@
 		public function ViewAllProducts(){
 			//$query  	= "SELECT * FROM products WHERE  pro_id = '$this->id'";
 			
-			$query 		= "SELECT * FROM products INNER JOIN vendor ON products.vendor_id = vendor.id_vendor WHERE pro_id = '$this->id'";
+			$query 		= "SELECT * FROM products 
+			INNER JOIN vendor ON products.vendor_id = vendor.id_vendor 
+			INNER JOIN cetegory ON products.cat_id  = cetegory.cat_id
+			WHERE pro_id = '$this->id'";
 
 			$result 	= $this->performQuery($query);
 			return 		  $this->fetchAll($result); 

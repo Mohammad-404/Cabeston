@@ -14,12 +14,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
+                                <span style="color:red;">Pending Post</span>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" 
                                 class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Price</th>
@@ -27,6 +29,7 @@
                                             <th>Image1</th>
                                             <th>Image2</th>
                                             <th>Image3</th>
+                                            <th>Size</th>
                                             <th>Delete</th>
                                             <th>Update</th>
                                         </tr>
@@ -39,6 +42,7 @@
                                             foreach ($Printers as $Rows) {
                                         ?>
                                         <tr>
+                                            <td><?php echo $Rows['pro_id']; ?></td>
                                             <td><?php echo $Rows['pro_name']; ?></td>
                                             <td><?php echo $Rows['pro_desc']; ?></td>
                                             <td><?php echo $Rows['pro_price']; ?></td>
@@ -69,6 +73,9 @@
                                                  ?>
                                                      
                                             </td>
+
+                                            <td><?php echo $Rows['size']; ?></td>
+
                                             <?="
                                             <td>
                                             <a href='deleteProduct.php?id={$Rows['pro_id']}' 

@@ -14,37 +14,40 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
+                                <span style="color:blue;">Post Accept</span>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" 
                                 class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Price</th>
                                             <th>Quantities</th>
-                                            <th>Size</th>
                                             <th>Image1</th>
                                             <th>Image2</th>
                                             <th>Image3</th>
+                                            <th>Size</th>
                                             <th>Delete</th>
+                                            <th>Update</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $Printers   = $ViewVendor->ViewProducts();
+                                            $idvendor   = $_SESSION['vendor_id'];
+                                            $Printers   = 
+                                            $ViewVendor->ViewProductsAccept($idvendor);
                                             if ($Printers) {
                                             foreach ($Printers as $Rows) {
                                         ?>
                                         <tr>
+                                            <td><?php echo $Rows['pro_id']; ?></td>
                                             <td><?php echo $Rows['pro_name']; ?></td>
                                             <td><?php echo $Rows['pro_desc']; ?></td>
                                             <td><?php echo $Rows['pro_price']; ?></td>
                                             <td><?php echo $Rows['qty']; ?></td>
-                                            <td><?php echo $Rows['size']; ?></td>
-                                            
-
                                             <td>
                                                 <?php
                                                  echo"
@@ -72,11 +75,17 @@
                                                      
                                             </td>
 
-                                            
+                                            <td><?php echo $Rows['size']; ?></td>
+
                                             <?="
                                             <td>
-                                            <a href='deleteProduct.php?id={$Rows['pro_id']}' 
+                                            <a href='deleteProductacc.php?id={$Rows['pro_id']}' 
                                                 class='btn btn-danger t'>DELETE</a>
+                                            </td>
+
+                                            <td>
+                                            <a href='updateProductacc.php?id={$Rows['pro_id']}' 
+                                                class='btn btn-success t'>UPDATE</a>
                                             </td>
                                             ";?>
                                         </tr>

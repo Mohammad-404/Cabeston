@@ -113,6 +113,8 @@
                                             <?php echo "JD ".$Rows['total']; ?>    
                                             </td>
                                             <td><input type="submit" name="sub" value="Save" class="btn btn-primary"></td>
+                                           
+
                                         </tr>
                                         <?php
                                             }

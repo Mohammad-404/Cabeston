@@ -22,9 +22,11 @@
 				$Shoping_Cart->total  		= $row['pro_price']*$value;
 				$Shoping_Cart->pro_id 		= $key;
 				$Shoping_Cart->quantity 	= $value;
+				$Shoping_Cart->nico 	    = $_SESSION['nico'];
+
 				$Shoping_Cart->InsertDateOrderDetails();
 			}
-			unset($_SESSION['cart']);
+			unset($_SESSION['cart'],$_SESSION['nico']);
 			header("location: Thank.php");
 		}else{
 			header("location: login.php");

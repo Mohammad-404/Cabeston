@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2021 at 01:49 PM
+-- Generation Time: Feb 01, 2021 at 09:36 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -64,7 +64,12 @@ INSERT INTO `cetegory` (`cat_id`, `cat_name`, `cat_desc`, `cat_image`, `stat`) V
 (26, 'FreeBase', 'Collection 2021', 'freebase.jpg', 'New'),
 (27, 'Saltnic', 'Collection 2021', 'saltnic_vgod_applebomb_25mg.png', 'New'),
 (28, 'Coils&Pods', 'Collection 2021', 'coilsjpg-1542821694413.jpg', 'New'),
-(29, 'Device', 'Collection 2021', '5c61c7429ce5c.jpeg', 'New');
+(29, 'Device', 'Collection 2021', '5c61c7429ce5c.jpeg', 'New'),
+(30, 'dfgfdfg', '', '1.png', ''),
+(31, 'dsfsdf', '', '', ''),
+(32, 'ddsfg', '', '', ''),
+(33, 'xfxgdf', '', '', ''),
+(34, 'dsfsdf', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -122,7 +127,9 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`order_id`, `order_date`, `cust_id`) VALUES
 (174, '2021-01-26', 94),
 (175, '2021-01-27', 94),
-(176, '2021-01-27', 94);
+(176, '2021-01-27', 94),
+(177, '2021-02-01', 94),
+(178, '2021-02-01', 94);
 
 -- --------------------------------------------------------
 
@@ -135,18 +142,9 @@ CREATE TABLE `order_details` (
   `order_id` int(3) NOT NULL,
   `pro_id` int(3) NOT NULL,
   `qty` int(5) NOT NULL,
-  `total` int(5) NOT NULL
+  `total` int(5) NOT NULL,
+  `nico` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`order_details_id`, `order_id`, `pro_id`, `qty`, `total`) VALUES
-(78, 175, 86, 1, 25),
-(79, 175, 91, 1, 40),
-(80, 175, 89, 1, 90),
-(81, 176, 86, 1, 25);
 
 -- --------------------------------------------------------
 
@@ -167,20 +165,34 @@ CREATE TABLE `products` (
   `vendor_id` int(50) NOT NULL,
   `vendor_name` varchar(150) NOT NULL,
   `vendor_email` varchar(150) NOT NULL,
-  `Dates` date NOT NULL
+  `Dates` date NOT NULL,
+  `nico` varchar(50) NOT NULL,
+  `size` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `products`
+-- Table structure for table `productssave`
 --
 
-INSERT INTO `products` (`pro_id`, `pro_name`, `pro_desc`, `pro_price`, `qty`, `pro_image`, `pro_image1`, `pro_image2`, `cat_id`, `vendor_id`, `vendor_name`, `vendor_email`, `Dates`) VALUES
-(86, 'Vapresso', 'Juce Freebase', '25', 5, 'vaporesso_gen_s_starter_kit.jpg', '1832.jpg', '', 26, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
-(87, 'Vapresso-Small', 'Pod', '24', 20, 'vaporesso-osmall-pod-starter-kit-black-image-1-67765_1588641903.jpg', '', '', 26, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
-(88, 'Vapresso Swag II KIT', 'مكفول مدى الحياة ', '50', 5, 'asdasd.jpg', '', '', 27, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
-(89, 'Gen S Kit', 'Offer 30%', '90', 5, 'images.jpg', 'vaporesso_gen_s_starter_kit__1.jpg', '', 29, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
-(90, 'PodStick Vapross', '', '55', 50, '33fa0eaf387f964eec702b2ef72bebd5.jpg', '', '', 26, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27'),
-(91, 'Collection Device', '2021 offer 50%', '40', 10, '1832.jpg', '', '', 28, 4, 'Mohammad', 'm.almasri97.me@gmail.com', '2021-01-27');
+CREATE TABLE `productssave` (
+  `pro_id` int(3) NOT NULL,
+  `pro_name` varchar(50) NOT NULL,
+  `pro_desc` varchar(50) NOT NULL,
+  `pro_price` varchar(50) NOT NULL,
+  `qty` int(50) NOT NULL,
+  `pro_image` varchar(255) NOT NULL,
+  `pro_image1` text NOT NULL,
+  `pro_image2` text NOT NULL,
+  `cat_id` int(50) NOT NULL,
+  `vendor_id` int(50) NOT NULL,
+  `vendor_name` varchar(150) NOT NULL,
+  `vendor_email` varchar(150) NOT NULL,
+  `Dates` date NOT NULL,
+  `nico` varchar(50) NOT NULL,
+  `size` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -198,15 +210,6 @@ CREATE TABLE `saveorders` (
   `total` int(150) NOT NULL,
   `vendor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `saveorders`
---
-
-INSERT INTO `saveorders` (`id`, `order_id`, `dateorder`, `custid`, `proid`, `qty`, `total`, `vendor_id`) VALUES
-(16, 176, '2021-01-27', 94, 86, 1, 25, 4),
-(17, 176, '2021-01-27', 94, 86, 1, 25, 4),
-(18, 176, '2021-01-27', 94, 86, 1, 25, 4);
 
 -- --------------------------------------------------------
 
@@ -250,7 +253,7 @@ CREATE TABLE `vendor` (
 --
 
 INSERT INTO `vendor` (`id_vendor`, `name`, `password`, `email`, `address`, `phone`, `business`) VALUES
-(4, 'Mohammad', '123', 'm.almasri97.me@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor'),
+(4, 'osama', '123', 'm.almasri97.me@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor'),
 (15, 'Admin2020', '123', 'osama2020@gmail.com', 'Zarqa/Street 16', '0795439152', '');
 
 -- --------------------------------------------------------
@@ -268,13 +271,6 @@ CREATE TABLE `vendoraccept` (
   `phone` varchar(250) NOT NULL,
   `business` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `vendoraccept`
---
-
-INSERT INTO `vendoraccept` (`id_vendor`, `name`, `password`, `email`, `address`, `phone`, `business`) VALUES
-(3, 'Admin', '123', 'osama2020@gmail.com', 'Zarqa/Street 16', '0795439152', 'Vendor');
 
 --
 -- Indexes for dumped tables
@@ -329,6 +325,13 @@ ALTER TABLE `products`
   ADD KEY `vendor_id` (`vendor_id`);
 
 --
+-- Indexes for table `productssave`
+--
+ALTER TABLE `productssave`
+  ADD PRIMARY KEY (`pro_id`),
+  ADD KEY `vendor_id` (`vendor_id`);
+
+--
 -- Indexes for table `saveorders`
 --
 ALTER TABLE `saveorders`
@@ -352,7 +355,8 @@ ALTER TABLE `vendor`
 -- Indexes for table `vendoraccept`
 --
 ALTER TABLE `vendoraccept`
-  ADD PRIMARY KEY (`id_vendor`);
+  ADD PRIMARY KEY (`id_vendor`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -368,7 +372,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cetegory`
 --
 ALTER TABLE `cetegory`
-  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `contactus`
@@ -386,19 +390,25 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `order_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `order_details_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+
+--
+-- AUTO_INCREMENT for table `productssave`
+--
+ALTER TABLE `productssave`
+  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `saveorders`
@@ -416,13 +426,13 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
-  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `vendoraccept`
 --
 ALTER TABLE `vendoraccept`
-  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_vendor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -447,6 +457,12 @@ ALTER TABLE `order_details`
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `cetegory` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`id_vendor`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `productssave`
+--
+ALTER TABLE `productssave`
+  ADD CONSTRAINT `productssave_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`id_vendor`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `saveorders`

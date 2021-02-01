@@ -16,12 +16,7 @@ class vendorsign extends dbconnection{
 		Values('$this->name','$this->password','$this->email','$this->address','$this->phone'
 		,'$this->business')";
 		
-		if ($this->performQuery($query)) {
-			$Error = "Successfully Add Vendor";
-		}else{
-			$Error = "Email Already Exists";
-		}
-		return $Error;
+		$this->performQuery($query);
 	}
 
 	public function ReadVendors(){

@@ -28,6 +28,7 @@
                                             <th>Address</th>
                                             <th>Product Name</th>
                                             <th>Quantities</th>
+                                            <th>Nicotien</th>
                                             <th>Total</th>
                                             <th>Sub Total</th>
                                         </tr>
@@ -47,6 +48,7 @@
                                             <td><?php echo $Rows['cust_address']; ?></td>
                                             <td><?php echo $Rows['pro_name']; ?></td>
                                             <td><?php echo $Rows['qty']; ?></td>
+                                            <td><?php echo $Rows['nico']; ?></td>
                                             <td><?php echo "JD ".$Rows['pro_price']; ?></td>
                                             <td><?php echo "JD ".$Rows['total']; ?></td>
                                         </tr>

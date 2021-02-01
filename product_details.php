@@ -2,7 +2,8 @@
 	session_start();
 	include('classes/DBConnection.php');
 	include('classes/product-details.php');
-	
+
+
 	$product_details 	= new Product_Details();
 	$id_pro = $_GET['id'];
 	
@@ -19,6 +20,7 @@
 	if (!isset($_SESSION['vendor_name'])) {
 		if ($_POST['quan'] <= $Qty['qty']) {
 		$_SESSION['cart'][$id_pro] = $_POST['quan']; 
+		$_SESSION['nico'] 		   = $_POST['Nico'];
 		header("location:cart.php");
 		}else{
 			$error = "The operation Failed, please reduce the quantity";
@@ -125,7 +127,52 @@
 							<p>
 								<?="Quantity : {$value['qty']}"?>
 							</p>
-							<div>
+
+
+							<p>
+								<?php 
+									if ($value['size'] != "") {	
+								?>
+									<span>Bottle Size : </span>
+									<?="{$value['size']}"?>
+								
+								<?php } ?>
+							</p>
+
+
+						<form class="variations_form cart" action="" method="post">
+						<p>
+							<?php
+								if ($value['cat_name'] == "FreeBase") {
+							?>
+							<span>Nicotine Strength</span>
+							<select name="Nico" style="margin-left: 10px; margin-right: 20px; width: 100px; height: 30px;">
+								<option value="0">0</option>
+								<option value="3">3</option>
+								<option value="6">6</option>
+								<option value="9">9</option>
+								<option value="12">12</option>
+								<option value="18">18</option>
+							</select>
+						<?php } ?>
+						</p>
+
+						<p>
+							<?php
+								if ($value['cat_name'] == "Saltnic") {
+							?>
+							<span>Nicotine Strength</span>
+							<select name="Nico" style="margin-left: 10px; margin-right: 20px; width: 100px; height: 30px;">
+								<option value="0">20</option>
+								<option value="3">25</option>
+								<option value="6">30</option>
+								<option value="9">35</option>
+								<option value="12">50</option>
+							</select>
+						<?php } ?>
+						</p>
+
+							<div id="total">
 								<p class="price">
 									<ins><span class="amount color_price">
 										<span style="color:black;">Price :</span>
@@ -134,7 +181,7 @@
 							</div>
 
 
-							<form class="variations_form cart" action="" method="post">
+							
 
 								<div class="quantity">
 									<input type="number" step="1" name="quan" value="1" title="Qty" class="input-text qty text" size="4" min="1">
@@ -255,3 +302,14 @@
 <?php
 	include('include/footer.php');
 ?>
+<!-- 
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#size").click(function(){
+	    $("#total").hide();
+	  });
+	  $(".btn2").click(function(){
+	    $("p").show();
+	  });
+	});
+</script> -->

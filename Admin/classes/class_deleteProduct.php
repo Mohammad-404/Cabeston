@@ -8,5 +8,10 @@
 			$this->performQuery($query);
 		}
 
+		public function DeleteProductsAc($id){
+			$query = "DELETE FROM productssave WHERE pro_id  = '$id' ";
+			$this->performQuery($query);
+		}
+
 	}
 ?>
