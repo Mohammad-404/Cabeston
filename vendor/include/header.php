@@ -137,7 +137,7 @@
 
                     <li class="menu-title">Orders Saved</li><!-- /.menu-title -->
                     <li class="menu-item-has-children">
-                        <a href="saveOrders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Orders</a>
+                        <a href="SaveOrders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Orders</a>
                     </li>
 
                 </ul>
