@@ -4,7 +4,7 @@
     $Vendors = new Vendors();
     $id = $_GET['id'];
     if (!isset($_GET['id'])) {
-        header("home.php");
+        header("index.php");
     }
 
     $dates = $Vendors->ViewSliderby($id);

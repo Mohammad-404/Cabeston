@@ -275,7 +275,7 @@ if( !headers_sent() && '' == session_id() ) {
 
 
 								<ul class='dropdown-menu dropdown-mini' role='menu'>
-									<li><a href='vendor/home.php'>Profile</a></li>
+									<li><a href='vendor/index.php'>Profile</a></li>
 									<li><a href='logout.php'>Logout</a></li>
 								</ul>
 							";

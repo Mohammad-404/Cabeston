@@ -5,7 +5,7 @@
     $Categories = new Categories();
     $id = $_GET['id'];
     if (!isset($_GET['id'])) {
-        header("home.php");
+        header("index.php");
     }
 
     $dates = $Categories->ViewCatby($id);

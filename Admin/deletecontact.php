@@ -1,6 +1,6 @@
 <?php
 	if (!isset($_GET['id'])) {
-		header("location: home.php");
+		header("location: index.php");
 	}
 
 	include("classes/classContact.php");

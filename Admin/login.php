@@ -1,7 +1,7 @@
 <?php
    session_start();
    if (isset($_SESSION['admin_name'])) {
-      header("location: home.php");
+      header("location: index.php");
    }
    include("classes/verifylogin.php");
    $adminlogin = new adminlogin();
@@ -13,7 +13,7 @@
       if($AdminCool){
          $_SESSION['admin_name'] = $AdminCool[0]['admin_email'];
 
-         header("location: home.php");
+         header("location: index.php");
       }else{
          $error = "USER NOT FOUND !";
       }
