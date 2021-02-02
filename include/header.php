@@ -160,6 +160,7 @@ if( !headers_sent() && '' == session_id() ) {
 			color:green !important;
 		}
 		.imgcateee{
+			width:100% !important;
 			height: 150px !important;
 		}
 	</style>
