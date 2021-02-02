@@ -4,7 +4,7 @@
 	$thankYou = new thankYou();
 	
 	if (!isset($_SESSION['user_id']) || !isset($_SESSION['vendor_id'])) {
-		header("locoation: index.php");
+		header("locoation: home.php");
 	}
 
 	$results = $thankYou->NumberOrder();
@@ -104,7 +104,7 @@
 						<div class="sidebar-navigation desings">
 								<p>Thank You For Shoping, Your ID :</p>
 								<?="<p class='id'>".$ValuesID['order_id']."</p>";?>
-							<a href="index.php" class="btn">Home Page</a>
+							<a href="home.php" class="btn">Home Page</a>
 						</div>
 					</div>
 				</div>

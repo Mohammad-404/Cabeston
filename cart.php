@@ -3,7 +3,7 @@
 	include("classes/DBConnection.php");
 	include("classes/shoping_cart_class.php");
 	if (isset($_SESSION['vendor_name'])) {
-		header("location: index.php");
+		header("location: home.php");
 	}
 
 	$Shoping_Cart = new Shoping_Cart();
@@ -151,7 +151,7 @@
 									<!-- /.tab-container -->
 
 								<div class="mt-30"></div>
-									<a href="index.php" class="btn btn-custom-6 btn-lger min-width-lg">Continue Shopping</a>
+									<a href="home.php" class="btn btn-custom-6 btn-lger min-width-lg">Continue Shopping</a>
 								</div>
 
 								<div class="mt-30 visible-sm visible-xs clearfix"></div>

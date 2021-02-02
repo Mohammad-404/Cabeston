@@ -8,7 +8,7 @@
 	$id_pro = $_GET['id'];
 	
 	if (!isset($_GET['id']) || empty($_GET['id'])) {
-		header("index.php");
+		header("home.php");
 	}
 
 	$product_details->id = $id_pro;
@@ -26,7 +26,7 @@
 			$error = "The operation Failed, please reduce the quantity";
 		}		
 	}else{
-		header("location: index.php");
+		header("location: home.php");
 	}
 	
 }

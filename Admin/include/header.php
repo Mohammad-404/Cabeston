@@ -107,7 +107,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="home.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
 
                     <li class="menu-title">Products Vendor</li><!-- /.menu-title -->

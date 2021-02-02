@@ -2,7 +2,7 @@
 	session_start();
 
 	if (!isset($_GET['id']) || empty($_GET['id'])) {
-		header("index.php");
+		header("home.php");
 	}
 	$id = $_GET['id'];
 

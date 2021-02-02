@@ -275,7 +275,7 @@ if( !headers_sent() && '' == session_id() ) {
 
 
 								<ul class='dropdown-menu dropdown-mini' role='menu'>
-									<li><a href='vendor/index.php'>Profile</a></li>
+									<li><a href='vendor/home.php'>Profile</a></li>
 									<li><a href='logout.php'>Logout</a></li>
 								</ul>
 							";
@@ -333,7 +333,7 @@ if( !headers_sent() && '' == session_id() ) {
 				<div class="col-md-4 col-sm-4">
 					<!-- Logo section -->
 					<div class="logo">
-						<h1><a href="index.php"><i class="fa fa-bookmark-o"></i>
+						<h1><a href="home.php"><i class="fa fa-bookmark-o"></i>
 							<img class="logoimg" src="img/logo2021.jpg">
 						</a></h1>
 					</div>
@@ -362,7 +362,7 @@ if( !headers_sent() && '' == session_id() ) {
 				<div class="navy">
 					<ul>
 						<!-- Main menu -->
-						<li><a href="index.php">Home</a>
+						<li><a href="home.php">Home</a>
 							<!-- Submenu -->
 <!-- 							<ul>
 

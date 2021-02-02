@@ -4,7 +4,7 @@
         session_start();
     }
     if (!isset($_SESSION['vendor_name'])) {
-        header("location: ../index.php");
+        header("location: ../home.php");
     }
 ?>
 
@@ -100,7 +100,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="home.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
 
                     <li class="menu-title">Products Vendor</li><!-- /.menu-title -->
@@ -187,7 +187,7 @@
                             <a class="nav-link"><i class="fa fa- user"></i><?=$_SESSION["vendor_name"];?></a>
 
 
-                            <a class="nav-link" href="../index.php"><i class="fa fa- user"></i>Home Page</a>
+                            <a class="nav-link" href="../home.php"><i class="fa fa- user"></i>Home Page</a>
 
                             <a class="nav-link" href="profileVendor.php"><i class="fa fa- user"></i>My Profile</a>
 

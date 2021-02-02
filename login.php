@@ -6,7 +6,7 @@
 	if (isset($_SESSION['user_id']) || isset($_SESSION['cust_email']) || 
 		isset($_SESSION['user_name']) || isset($_SESSION['vendor_email'])) 
 	{
-		header("location: index.php");	
+		header("location: home.php");	
 	}
 
 
@@ -22,7 +22,7 @@
 				$_SESSION['user_id']  		= $Result[0]['cust_id'];
 				$_SESSION['cust_email']		= $Result[0]['cust_email'];
 				$_SESSION['user_name'] 		= $Result[0]['cust_name'];
-				header("location: index.php");
+				header("location: home.php");
 			}else{
 				$FaildLogin = "USER NOT FOUND !";
 			}
@@ -37,7 +37,7 @@
 				$_SESSION['vendor_email']		= $Result[0]['email'];
 				$_SESSION['vendor_name'] 		= $Result[0]['name'];
 				$_SESSION['vendor_phone'] 		= $Result[0]['phone'];
-				header("location: index.php");
+				header("location: home.php");
 			}else{
 				$FaildLogin = "USER NOT FOUND !";
 			}
