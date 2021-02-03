@@ -25,7 +25,6 @@
                                             <th>Count Quantities</th>
                                             <th>SUM Quantities</th>
                                             <th>SubTotal</th>
-                                            <th>DELETE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,12 +40,6 @@
                                             <td><?php echo $Rows['AllQty']; ?></td>
                                             <td><?php echo $Rows['SumAllQty']; ?></td>
                                             <td><?php echo "JD ".$Rows['AllTotal']; ?></td>
-                                            <?="
-                                            <td>
-                                            <a href='deleteOrders.php?id={$Rows['order_id']}' 
-                                                class='btn btn-danger t'>DELETE</a>
-                                            </td>
-                                            ";?>
                                         </tr>
                                         <?php
                                             }

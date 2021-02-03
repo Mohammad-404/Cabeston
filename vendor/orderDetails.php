@@ -31,6 +31,7 @@
                                             <th>Nicotien</th>
                                             <th>Total</th>
                                             <th>Sub Total</th>
+                                            <th>DELETE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,6 +52,12 @@
                                             <td><?php echo $Rows['nico']; ?></td>
                                             <td><?php echo "JD ".$Rows['pro_price']; ?></td>
                                             <td><?php echo "JD ".$Rows['total']; ?></td>
+                                            <?="
+                                            <td>
+                                            <a href='deleteOrders.php?id={$Rows['order_details_id']}' 
+                                                class='btn btn-danger t'>DELETE</a>
+                                            </td>
+                                            ";?>
                                         </tr>
                                         <?php
                                             }
