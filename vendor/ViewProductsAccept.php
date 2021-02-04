@@ -30,6 +30,7 @@
                                             <th>Image2</th>
                                             <th>Image3</th>
                                             <th>Size</th>
+                                            <th>Nico</th>
                                             <th>Delete</th>
                                             <th>Update</th>
                                         </tr>
@@ -76,7 +77,7 @@
                                             </td>
 
                                             <td><?php echo $Rows['size']; ?></td>
-
+                                            <td><?php echo $Rows['nico']; ?></td>
                                             <?="
                                             <td>
                                             <a href='deleteProductacc.php?id={$Rows['pro_id']}' 

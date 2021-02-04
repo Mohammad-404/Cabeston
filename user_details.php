@@ -3,7 +3,7 @@
 	include('classes/classuser_details.php');
 	$DetailsUser	= new DetailsUser();
 	$id 	       	= $_SESSION['user_id'];
-  $R      = $DetailsUser->DetailsCustomer($id); 
+  $R            = $DetailsUser->DetailsCustomer($id); 
 	include('include/header.php');
 ?>
 

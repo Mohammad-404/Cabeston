@@ -124,9 +124,6 @@
 							<p>
 								<?="Date : {$value['Dates']}"?>
 							</p>
-							<p>
-								<?="Quantity : {$value['qty']}"?>
-							</p>
 
 
 							<p>
@@ -141,36 +138,6 @@
 
 
 						<form class="variations_form cart" action="" method="post">
-						<p>
-							<?php
-								if ($value['cat_name'] == "FreeBase") {
-							?>
-							<span>Nicotine Strength</span>
-							<select name="Nico" style="margin-left: 10px; margin-right: 20px; width: 100px; height: 30px;">
-								<option value="0">0</option>
-								<option value="3">3</option>
-								<option value="6">6</option>
-								<option value="9">9</option>
-								<option value="12">12</option>
-								<option value="18">18</option>
-							</select>
-						<?php } ?>
-						</p>
-
-						<p>
-							<?php
-								if ($value['cat_name'] == "Saltnic") {
-							?>
-							<span>Nicotine Strength</span>
-							<select name="Nico" style="margin-left: 10px; margin-right: 20px; width: 100px; height: 30px;">
-								<option value="0">20</option>
-								<option value="3">25</option>
-								<option value="6">30</option>
-								<option value="9">35</option>
-								<option value="12">50</option>
-							</select>
-						<?php } ?>
-						</p>
 
 							<div id="total">
 								<p class="price">
@@ -181,14 +148,36 @@
 							</div>
 
 
-							
+													
+								<div class="input-group" style="padding-bottom:20px;">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-dark btn-number"  
+										data-type="minus" data-field="">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
 
-								<div class="quantity">
-									<input type="number" step="1" name="quan" value="1" title="Qty" class="input-text qty text" size="4" min="1">
-								</div>
+								    <input type="text" size="4" min="1" id="quantity" name="quan" class="form-control input-number" 
+									value="1" step="1" max="100" class="indes" style="width:50px;text-align:center;">
+								
+								    <input type="hidden" id="quantitydb" value="<?="{$value['qty']}"?>" >
 
+                                        <button type="button" class="quantity-right-plus btn btn-dark btn-number" 
+										data-type="plus" data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                </div>
+
+
+								<?php
+									if($value['qty'] != 0){
+								?>
 								<button name="sub" class="cart-button">Add to cart</button>
-
+								<?php
+									}else{
+										echo "<p class='cart-button' style='width:135px;'>Out od Stock</p>";
+									}
+								?>
 							</form>
 
 
@@ -298,10 +287,49 @@
 <!-- end service area -->
 </main>
 <!-- end main content -->
+<script>
 
+$(document).ready(function(){
+
+var quantitiy=0;
+   $('.quantity-right-plus').click(function(e){
+        
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity   = parseInt($('#quantity').val());
+        var quantitydb = parseInt($('#quantitydb').val());
+        // If is not undefined
+            
+		if(quantity != quantitydb){
+            $('#quantity').val(quantity + 1);
+		}
+          
+            // Increment
+        
+    });
+
+     $('.quantity-left-minus').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
+        
+        // If is not undefined
+		
+            // Increment
+            if(quantity>1){
+            $('#quantity').val(quantity - 1);
+            }
+    });
+    
+});
+</script>
 <?php
 	include('include/footer.php');
 ?>
+
+
 <!-- 
 <script type="text/javascript">
 	$(document).ready(function(){

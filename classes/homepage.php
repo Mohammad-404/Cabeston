@@ -53,6 +53,12 @@
 			return 		  $this->fetchAll($result);
 		}
 
+		public function ReadNicotine(){
+			$query 		= "SELECT nico FROM products";
+			$result 	= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
+
 	}
 
 

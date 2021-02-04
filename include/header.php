@@ -5,6 +5,7 @@ if( !headers_sent() && '' == session_id() ) {
 	include_once('classes/DBConnection.php');
 	include_once('classes/homepage.php');
 	include("include/db.php");
+
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -163,6 +164,9 @@ if( !headers_sent() && '' == session_id() ) {
 			width:100% !important;
 			height: 150px !important;
 		}
+		.indes{
+			width:20px !important;
+		}
 	</style>
 </head>
 
@@ -294,17 +298,28 @@ if( !headers_sent() && '' == session_id() ) {
 
 			<!-- Search section for responsive design -->
 			<div class="tb-search pull-left">
-<!-- 				<a href="#" class="b-dropdown"><i class="fa fa-search square-2 rounded-1 bg-color white"></i></a>
+				<a href="#" class="b-dropdown"><i class="fa fa-search square-2 rounded-1 bg-color white"></i></a>
 				<div class="b-dropdown-block">
-					<form>
+					<form action="resultsearch.php" method="post">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Type Something">
+							
+							<select name="nico" class="form-control">
+									<option> Select Nicotine </option>
+									<?php
+										$H = new HomePage();
+										$N = $H->ReadNicotine();
+										foreach($N as $NI){
+											echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
+										}
+									?>
+							</select>
+
 								<span class="input-group-btn">
-									<button class="btn btn-color" type="button">Search</button>
+									<button class="btn btn-color" name="sub">Nicotine</button>
 								</span>
 						</div>
 					</form>
-				</div> -->
+				</div>
 			</div>
 			<!-- Search section ends -->
 
@@ -342,15 +357,25 @@ if( !headers_sent() && '' == session_id() ) {
 				<div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-3 hidden-xs">
 					<!-- Search Form -->
 					<div class="header-search">
-<!-- 						<form>
-							
+						<form action="resultsearch.php" method="post">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Type Something">
-										<span class="input-group-btn">
-											<button class="btn btn-color" type="button">Search</button>
-										</span>
+						<!-- <input type="text" class="form-control" placeholder="Type Something"> -->
+									<select name="nico" class="form-control">
+									<option> Select Nicotine </option>
+									<?php
+										$H = new HomePage();
+										$N = $H->ReadNicotine();
+										foreach($N as $NI){
+											echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
+										}
+									?>
+									</select>
+									
+									<span class="input-group-btn">
+										<button class="btn btn-color" name="sub">Nicotine</button>
+									</span>
 							</div>
-						</form> -->
+						</form>
 					</div>
 				</div>
 			</div>

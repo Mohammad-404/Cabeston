@@ -23,6 +23,7 @@
 			return 		  $this->fetchAll($result);
 		}
 
+
 		public function InsertDateOrderDetails(){
 			$query 		= "INSERT INTO order_details(order_id,pro_id,qty,total,nico) 
 			VALUES('$this->last_id','$this->pro_id','$this->quantity','$this->total'
@@ -33,6 +34,17 @@
 
 		public function ReadCart($k){
 			$query 		= "SELECT * FROM products WHERE pro_id = '$k'";
+			$result 	= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
+
+		public function editqty($FQTY){
+			$query = "UPDATE products SET qty = '$FQTY' WHERE pro_id = '$this->pro_id'";
+			$this->performQuery($query); 
+		}
+
+		public function ReadQTYproducts($key){
+			$query 	= "SELECT qty FROM products WHERE pro_id = '$key'";
 			$result 	= $this->performQuery($query);
 			return 		  $this->fetchAll($result);
 		}

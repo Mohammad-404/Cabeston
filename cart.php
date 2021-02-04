@@ -8,6 +8,33 @@
 
 	$Shoping_Cart = new Shoping_Cart();
 
+	// $result = 0;
+	// foreach ($_SESSION['cart'] as $key => $value) {
+	// $var_qty = $Shoping_Cart->ReadQTYproducts($key);
+	// $variable = $Shoping_Cart->ReadDateProducts($key);
+
+	// foreach ($variable as $row);
+	
+	// foreach ($var_qty as $qty_final);
+
+	// echo $value;
+
+	// echo $qty_final['qty']."<br>";
+	// echo $value;
+	// 	echo "<br>";
+	// $FQTY = $qty_final['qty'] - $value;
+	// echo $FQTY;
+	
+	//echo $FQTY = $qty_final['qty'] - $value;		
+	//echo $Shoping_Cart->total  			= $row['pro_price']*$value;
+	//echo $Shoping_Cart->pro_id 			= $key;
+	// echo $Shoping_Cart->quantity 		= $value;
+	// echo $Shoping_Cart->nico 	    	= $_SESSION['nico'];
+	// echo $Shoping_Cart->Resultquantity 	= $FQTY;
+
+	// die;
+	// }
+
 	if (isset($_SESSION['cart'])) {
 
 	if (isset($_POST['subm'])) {
@@ -18,13 +45,18 @@
 
 			foreach ($_SESSION['cart'] as $key => $value) {
 				$variable = $Shoping_Cart->ReadDateProducts($key);
-				foreach ($variable as $row);		
-				$Shoping_Cart->total  		= $row['pro_price']*$value;
-				$Shoping_Cart->pro_id 		= $key;
-				$Shoping_Cart->quantity 	= $value;
-				$Shoping_Cart->nico 	    = $_SESSION['nico'];
+				$var_qty = $Shoping_Cart->ReadQTYproducts($key);
+				foreach ($variable as $row);
+				foreach ($var_qty  as $qty_final);
 
+				$FQTY = $qty_final['qty'] - $value;		
+				$Shoping_Cart->total  			= $row['pro_price']*$value;
+				$Shoping_Cart->pro_id 			= $key;
+			    $Shoping_Cart->quantity 		= $value;
+			
+				$Shoping_Cart->nico 	    	= $_SESSION['nico'];
 				$Shoping_Cart->InsertDateOrderDetails();
+				$Shoping_Cart->editqty($FQTY);
 			}
 			unset($_SESSION['cart'],$_SESSION['nico']);
 			header("location: Thank.php");

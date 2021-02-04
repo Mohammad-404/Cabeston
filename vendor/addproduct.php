@@ -13,7 +13,7 @@
         $insertprod->vendor_name         = $_SESSION['vendor_name'];
         $insertprod->vendor_email        = $_SESSION['vendor_email'];
         $insertprod->Dates               = date('Y-m-d H:i:s');
-        // $insertprod->nico                = $_POST['nico'];
+        $insertprod->nico                = $_POST['nico'];
         $insertprod->size                = $_POST['size'];
 
         $insertprod->pro_image           = $_FILES['img1']['name'];
@@ -96,7 +96,7 @@
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 
-<!-- 
+
                                 <div class="form-group">
                                     <label class=" form-control-label">Nicotine Strength</label>
                                     <div class="input-group">
@@ -105,7 +105,7 @@
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 
- -->
+
                                 <div class="form-group">
                                     <label class=" form-control-label">Bottle Size</label>
                                     <div class="input-group">

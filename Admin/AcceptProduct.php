@@ -27,7 +27,8 @@
         $insertprod->cat_id              = $_POST['c_id'];
         $insertprod->vendor_id           = $_POST['v_id'];
         $insertprod->Dates               = $_POST['Dates'];
-        $insertprod->size                = $_POST['size'];
+        $insertprod->size                = $_POST['size']; 
+        $insertprod->nec                = $_POST['nec']; 
 
 
         $insertprod->pro_image            = $RERE['pro_image'];
@@ -102,6 +103,7 @@
                                             <input type="text" name="Dates" hidden="hidden" value="<?=$Rows['Dates']?>">
 
                                             <input type="text" name="size" hidden="hidden" value="<?=$Rows['size']?>">
+                                            <input type="text" name="nec" hidden="hidden" value="<?=$Rows['nico']?>">
 
                                             <td>
                                                 <?php

@@ -15,14 +15,14 @@
 		public $vendor_id;
 		public $Dates;
 		public $size;
-
+		public $nec;
 		public function InsertProduct(){
 			$query = "INSERT INTO products(
-			pro_name,pro_desc,pro_price,qty,pro_image,pro_image1,pro_image2,cat_id,vendor_id,Dates,size)
+			pro_name,pro_desc,pro_price,qty,pro_image,pro_image1,pro_image2,cat_id,vendor_id,Dates,nico,size)
 			VALUES(
 			'$this->pro_name','$this->pro_desc','$this->pro_price','$this->qty',
 			'$this->pro_image','$this->pro_image1','$this->pro_image2','$this->cat_id',
-			'$this->vendor_id','$this->Dates','$this->size')";
+			'$this->vendor_id','$this->Dates','$this->nec','$this->size')";
 			 $this->performQuery($query);
 		}
 
