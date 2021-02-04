@@ -309,7 +309,11 @@ if( !headers_sent() && '' == session_id() ) {
 										$H = new HomePage();
 										$N = $H->ReadNicotine();
 										foreach($N as $NI){
+											if($NI['nico'] != $NI['nico']){
+
 											echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
+											
+											}
 										}
 									?>
 							</select>
