@@ -54,7 +54,7 @@
 		}
 
 		public function ReadNicotine(){
-			$query 		= "SELECT nico FROM products GROUP BY nico";
+			$query 		= "SELECT nico FROM products GROUP BY nico DESC";
 			$result 	= $this->performQuery($query);
 			return 		  $this->fetchAll($result);
 		}

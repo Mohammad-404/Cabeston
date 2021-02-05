@@ -16,6 +16,12 @@
 			$result		= $this->performQuery($query);
 			return 		  $this->performRows($result);
 		}
+
+		public function ReadCategoryess($id){
+			$query 	 	= "SELECT * FROM cetegory WHERE cat_id = '$id'";
+			$result		= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
 		
 		// public function ReadBag($k){
 		// 	$query 		= "SELECT * FROM products WHERE pro_id = '$k'";

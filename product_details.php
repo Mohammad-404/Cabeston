@@ -35,13 +35,28 @@
 
 	include('include/header.php');
 ?>
+<div class="container">
+	<nav class="navbar navbar-light bg-light">
+			<span class="navbar-text">
+				<?php
+					$id = $_GET['id'];
+					$pp = $product_details->ReadCategoryess($id);
+					foreach($pp as $vv);
+					echo "<span>Home</span> / {$vv['cat_name']} / 
+					<a href='?id={$vv['pro_id']}'>{$vv['pro_name']}</a> ";
+				
+				?>
+			</span>
+	</nav>
+</div>
 
-<div class="spacediv"></div>
+<div class="spacediv">
+
+</div>
 <!-- start main content -->
 <main class="main-container">
 <section class="product_content_area pt-40">
 	<!-- start of page content -->
-
 	<div class="lookcare-product-single container">
 
 		<div class="row">
@@ -51,6 +66,7 @@
 				<div class=" product">
 
 					<div class="row">
+					
 							<div>
 								<?php
 									if (isset($error)) {
@@ -163,8 +179,8 @@
                                         </button>
                                     </span>
 
-								    <input type="text" size="4" min="1" id="quantity" name="quan" class="form-control input-number" 
-									value="1" step="1" max="100" class="indes" style="width:50px;text-align:center;">
+								    <input type="number" size="4" min="1" id="quantity" name="quan" class="form-control input-number" 
+									value="0" step="1" max="100" class="indes" style="width:50px;text-align:center;">
 								
 								    <input type="hidden" id="quantitydb" value="<?="{$value['qty']}"?>" >
 
@@ -181,7 +197,7 @@
 								<button name="sub" class="cart-button">Add to cart</button>
 								<?php
 									}else{
-										echo "<p class='cart-button' style='width:135px;'>Out od Stock</p>";
+										echo "<p class='cart-button' style='width:135px;'>Out of Stock</p>";
 									}
 								?>
 							</form>
@@ -324,7 +340,7 @@ var quantitiy=0;
         // If is not undefined
 		
             // Increment
-            if(quantity>1){
+            if(quantity>0){
             $('#quantity').val(quantity - 1);
             }
     });

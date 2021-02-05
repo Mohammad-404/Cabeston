@@ -1,4 +1,8 @@
 <?php
+	if(empty($_GET['id']) || $_GET['id'] == ""){
+		header("location: home.php");
+	}
+
 	include('classes/DBConnection.php');
 	include('classes/products.php');
 	$product 			= new products();
@@ -12,6 +16,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12"><!--9-->
+
+		<nav class="navbar navbar-light bg-light">
+			<span class="navbar-text">
+				<?php
+					$id = $_GET['id'];
+					$pp = $product->ReadCategoryess($id);
+					foreach($pp as $vv);
+					echo "<span>Home</span> / <a href='?id={$vv['cat_id']}'>{$vv['cat_name']}</a> ";
+				?>
+			</span>
+		</nav>
 				
 <!-- 				<div class="row">
 					<div class="col-lg-12">

@@ -24,6 +24,15 @@
 			return 		  $this->fetchAll($result); 
 		}
 
+		public function ReadCategoryess($id){
+			$query 	 	= "SELECT * FROM products 
+			INNER JOIN cetegory ON products.cat_id = cetegory.cat_id
+			WHERE pro_id = '$id'";
+
+			$result		= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
+		
 		// public function ReadBag($k){
 		// 	$query 		= "SELECT * FROM products WHERE pro_id = '$k'";
 		// 	$result 	= $this->performQuery($query);

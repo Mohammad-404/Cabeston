@@ -309,11 +309,11 @@ if( !headers_sent() && '' == session_id() ) {
 										$H = new HomePage();
 										$N = $H->ReadNicotine();
 										foreach($N as $NI){
-											if($NI['nico'] != $NI['nico']){
+											// if($NI['nico'] != $NI['nico']){
 
 											echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
 											
-											}
+											// }
 										}
 									?>
 							</select>
@@ -370,7 +370,9 @@ if( !headers_sent() && '' == session_id() ) {
 										$H = new HomePage();
 										$N = $H->ReadNicotine();
 										foreach($N as $NI){
-											echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
+											// if($N['nico'] != ""){
+												echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
+											// }
 										}
 									?>
 									</select>
