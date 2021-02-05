@@ -124,7 +124,13 @@
 							<p>
 								<?="Date : {$value['Dates']}"?>
 							</p>
-
+							<p>
+								<?php 
+								if($value['nico'] != ""){
+									echo "Nicotine : {$value['nico']}";
+								}
+								?>
+							</p>
 
 							<p>
 								<?php 
