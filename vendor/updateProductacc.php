@@ -123,7 +123,7 @@
                                         <div class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></div>
                                         <input class="form-control" type="text" 
                                         name="nico" 
-                                        value="">
+                                        value="<?=$viewrow['nico']?>">
                                     </div>
                                     <small class="form-text text-muted">ex. 1 or More</small>
                                 </div> 

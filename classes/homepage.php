@@ -27,11 +27,17 @@
 
 		//view Products
 		public function ReadProducts(){
-			$query    	= "SELECT * FROM products";
+			$query    	= "SELECT * FROM products LIMIT 0,15";
 			$result 	= $this->performQuery($query);
 			return 		  $this->fetchAll($result);
 		}
 
+		// //view Products
+		// public function ReadProductsNicot(){
+		// 	$query    	= "SELECT * FROM products ";
+		// 	$result 	= $this->performQuery($query);
+		// 	return 		  $this->fetchAll($result);
+		// }
 
 		//view all product but need number pages
 		public function NumberRowInAllCetegory(){

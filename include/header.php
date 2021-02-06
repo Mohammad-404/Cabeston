@@ -367,12 +367,19 @@ if( !headers_sent() && '' == session_id() ) {
 									<select name="nico" class="form-control">
 									<option> Select Nicotine </option>
 									<?php
-										$H = new HomePage();
-										$N = $H->ReadNicotine();
+										$H  	 = new HomePage();
+										$N 	 	 = $H->ReadNicotine();
+										$compare  = "Free";
+										$compare1 = "free";
+										$compare2 = "Salt";
+										$compare3 = "salt";
+										
 										foreach($N as $NI){
-											// if($N['nico'] != ""){
-												echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
-											// }
+											$str 	 = substr($NI['nico'],0,4);
+											if($str == $compare || $str == $compare1 
+											|| $str == $compare2 || $str == $compare3){
+													echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";	 
+											}
 										}
 									?>
 									</select>
