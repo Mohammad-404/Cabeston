@@ -18,6 +18,12 @@
 			return 		  $this->fetchAll($result);
 		}
 
+		public function ReadCategoryIDS($id){
+			$query    	= "SELECT cat_name FROM cetegory WHERE cat_id = '$id'";
+			$result 	= $this->performQuery($query);
+			return 		  $this->fetchAll($result);
+		}
+
 		//view category
 		public function ReadC(){
 			$query    	= "SELECT * FROM cetegory";

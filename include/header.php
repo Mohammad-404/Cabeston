@@ -306,15 +306,34 @@ if( !headers_sent() && '' == session_id() ) {
 							<select name="nico" class="form-control">
 									<option> Select Nicotine </option>
 									<?php
-										$H = new HomePage();
-										$N = $H->ReadNicotine();
+									$id = $_GET['id'];
+									$H  	 = new HomePage();
+									
+									$qq = $H->ReadCategoryIDS($id);
+									
+									foreach($qq as $outputs);
+									
+									if ($outputs['cat_name'] == "FreeBase") {
+										$N 	 	 = $H->ReadNicotine();
+										$compare  = "Free";
+										$compare1 = "free";
+										
 										foreach($N as $NI){
-											// if($NI['nico'] != $NI['nico']){
-
-											echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";
-											
-											// }
+											$str 	 = substr($NI['nico'],0,4);
+											if($str == $compare || $str == $compare1){
+													echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";	 
+											}
 										}
+									}elseif($outputs['cat_name'] == "Saltnic"){
+										$compare2 = "Salt";
+										$compare3 = "salt";
+									foreach($N as $NI){
+										$str 	 = substr($NI['nico'],0,4);
+										if($str == $compare2 || $str == $compare3){
+													echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";	
+										}
+									}
+								}	
 									?>
 							</select>
 
@@ -367,20 +386,34 @@ if( !headers_sent() && '' == session_id() ) {
 									<select name="nico" class="form-control">
 									<option> Select Nicotine </option>
 									<?php
-										$H  	 = new HomePage();
+									$id = $_GET['id'];
+									$H  	 = new HomePage();
+									
+									$qq = $H->ReadCategoryIDS($id);
+									
+									foreach($qq as $outputs);
+									
+									if ($outputs['cat_name'] == "FreeBase") {
 										$N 	 	 = $H->ReadNicotine();
 										$compare  = "Free";
 										$compare1 = "free";
-										$compare2 = "Salt";
-										$compare3 = "salt";
 										
 										foreach($N as $NI){
 											$str 	 = substr($NI['nico'],0,4);
-											if($str == $compare || $str == $compare1 
-											|| $str == $compare2 || $str == $compare3){
+											if($str == $compare || $str == $compare1){
 													echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";	 
 											}
 										}
+									}elseif($outputs['cat_name'] == "Saltnic"){
+										$compare2 = "Salt";
+										$compare3 = "salt";
+									foreach($N as $NI){
+										$str 	 = substr($NI['nico'],0,4);
+										if($str == $compare2 || $str == $compare3){
+													echo"<option value='{$NI['nico']}'>{$NI['nico']}</option>";	
+										}
+									}
+									}
 									?>
 									</select>
 									
