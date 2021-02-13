@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="jquery-3.5.1.js">
+    <title>Hello, world!</title>
+    <style>
+        .navbar {
+            display: block;
+            background-color: rgb(232, 232, 232, 0.7);
+        }
+        
+        .imglogo {
+            height: 90px;
+        }
+        
+        .carousel-control-next {
+            top: 100px !important;
+            width: 50px;
+        }
+        /* OUTER CONTAINER */
+        
+        .tcontainer {
+            overflow: hidden;
+            width: 100%;
+            /* Hide scroll bar */
+        }
+        /* MIDDLE CONTAINER */
+        
+        .ticker-wrap {
+            width: 100%;
+            margin-left: 100%;
+            /* padding-left: 100%; */
+            /* Push contents to right side of screen */
+        }
+        /* INNER CONTAINER */
+        
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+        
+        .ticker-move {
+            /* Basically move items from right side of screen to left in infinite loop */
+            display: inline-block;
+            white-space: nowrap;
+            /* padding-right: 100%; */
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: ticker;
+            animation-duration: 15s;
+        }
+        
+        .ticker-move:hover {
+            animation-play-state: paused;
+            /* Pause scroll on mouse hover */
+        }
+        /* ITEMS */
+        
+        .ticker-item {
+            display: inline-block;
+            /* Lay items in a horizontal line */
+            padding: 0 2rem;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .ticker-move {
+                animation-duration: 20s;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div style="float: right;">
+            <a class="navbar-brand kk mr-5" href="#">
+                <img class="imglogo" src="hahah.jpg" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="">
+            <a href="">sadasd</a>
+            <a href="">qqqq</a>
+            <a href="">rrrr</a>
+            <a href="">rrrr</a>
+            <a href="">rrrr</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto my-3 mr-5">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="hahah.jpg" class=" w-100 " height="650px" alt="... ">
+            </div>
+            <div class="carousel-item">
+                <img src="hahah.jpg" class=" w-100 " height="650px" alt="... ">
+            </div>
+            <div class="carousel-control-next">
+                <ul class="list-group" aria-hidden="true">
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                    <li class="list-group-item">Cras</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--Start ticker-->
+
+    <div class="container-fluid bg-warning">
+        <div class="row">
+            <div class="col-10">
+                <div class="tcontainer">
+                    <div class="ticker-wrap">
+                        <div class="ticker-move" style="padding: 30px;">
+                            <div class="ticker-item">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                            <img src="hahah.jpg" width="20px" height="20px" alt="">
+                            <div class="ticker-item">Aliquam consequat varius consequat.</div>
+                            <img src="hahah.jpg" width="20px" height="20px" alt="">
+                            <div class="ticker-item">Aliquam consequat varius consequat.</div>
+                            <img src="hahah.jpg" width="20px" height="20px" alt="">
+                            <div class="ticker-item">Aliquam consequat varius consequat.</div>
+                            <img src="hahah.jpg" width="20px" height="20px" alt="">
+                            <div class="ticker-item">Aliquam consequat varius consequat.</div>
+                            <img src="hahah.jpg" width="20px" height="20px" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 bg-secondary">
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--end ticker-->
+
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+</body>
+
+</html>
